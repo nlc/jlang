@@ -1,0 +1,2 @@
+NB. Part 1
+whichfloor =. [: +/ [: ([: <: +:) ')(' & i.
