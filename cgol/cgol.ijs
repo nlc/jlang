@@ -1,6 +1,6 @@
 NB. Game of Life
 ]((3=])+4=*)(_1&|.+1&|.+])@:(_1&|."1+1&|."1+])
-NB. Bitch
+NB. Hell yeah
 NB. 46 chars, not terrible.
 +/@+/@((3 1$i:1)&|.@|:"2)^:2([=3+4=*)]
 NB. 38 chars with a different approach
