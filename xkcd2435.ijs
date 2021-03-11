@@ -1,7 +1,7 @@
 NB. https://xkcd.com/2435
 
 mean =: +/%#
-geom =: mean&.^.
+geom =: mean&.:^.
 median=: <.@-:@# { /:~
 
 f =: mean , geom , median
