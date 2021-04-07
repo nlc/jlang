@@ -18,7 +18,7 @@ NB. Shaved off another one for 33.
 NB. ell gets ope right eq three plus four eq times close cap sum twice ope
 NB.   rav rank zo ject flex top steps one close bind rot
 
-NB. Somebody on reddit came up with this
+NB. Somebody on reddit came up with this based on my original
 l=:(]=3+4=*)[:+/(>,{;~i:1)&|.
 
 NB. The Rosetta Code Version:
@@ -63,9 +63,9 @@ NB. one wise
 NB. damn turns out one is just a l/r shift of the other
 gla =: 3 3 $ 0 1 0 0 0 1 1 1 1
 glb =: 3 3 $ 1 0 0 0 1 1 1 1 0
-NB. rotate 2D array conter-clockwise
+NB. rotate 2D array counter-clockwise
 ccw =: ([: |. |:)"2
-NB. 
+NB.
 gls =: 16 3 3 ($,) ccw (^: (i. 4))"2 (,:|:"2)gla,:glb
 NB. embed 3x3 patterns in 5x5 zeros
 egls =: ([:(_1&|.&.|:)"2[:(_1&|.)"2([:,&0,&0&.|:)"2^:2) gls

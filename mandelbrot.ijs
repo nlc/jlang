@@ -4,6 +4,9 @@ rr =: [ + [: *: ]
 NB. Apply recurrence relation up to 100 times or until mag >= 2
 it =: rr ^: ([: 2&> [: | ]) ^: 100 & 0
 
-NB. Mandelbrot, bitch
-plane =: 0.5 -~ 18 %~ j./~i: 20
-2 > | (it"0) plane
+NB. Mandelbrot, baby
+require 'viewmat'
+plane =: 0.5 -~ 180 %~ j./~i: 200
+viewmat 2 > | (it"0) plane
+
+exit 1
