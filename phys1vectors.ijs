@@ -14,7 +14,7 @@ NB. echo +/&.:p2c D1 , D2 ,: D3 NB. => 796.881 _1.4846
 
 padd =: +&.:p2c
 psub =: -&.:p2c
-psum =: +/&.:p2c NB. should be equiv. to addpolar/ but more efficient
+psum =: +/&.:p2c NB. should be equiv. to padd/ but more efficient
 
 pnorm =: (1) 0} ] NB. Simply replace the radius with 1
 cnorm =: pnorm&.:c2p
