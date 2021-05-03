@@ -21,3 +21,12 @@ cnorm =: pnorm&.:c2p
 
 d2r =: %&180p_1
 r2d =: *&180p_1
+
+dot =: +/ . * NB. also works as a matrix multiply
+
+cross =: dyad define
+  assert (3 = # x) *. (3 = # y)
+  'a1 a2 a3' =. x
+  'b1 b2 b3' =. y
+  ((a2 * b3) - a3 * b2) , ((a3 * b1) - a1 * b3) , ((a1 * b2) - a2 * b1)
+)
