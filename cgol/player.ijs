@@ -21,11 +21,11 @@ NB. Seed rng
 (9!:1) ". (1!:1) 3
 
 NB. grid =: ? 220 406 $ 2
-grid =: ? 276 544 $ 2
+grid =: ? (4 2* 55 200) $ 2
 
 NB. NB. pattern based on my GH icon
 NB. ghidx =: 0 4 6 7 8 12 15 19
 NB. ghpat =: ghidx e.~ i. 4 5
 NB. grid =: 20 (|."1) 20 |. 32 32 {. ghpat
 
-(frame ^: 10000) 2
+(frame ^: 10000) 1

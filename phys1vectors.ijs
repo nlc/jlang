@@ -30,3 +30,6 @@ cross =: dyad define
   'b1 b2 b3' =. y
   ((a2 * b3) - a3 * b2) , ((a3 * b1) - a1 * b3) , ((a1 * b2) - a2 * b1)
 )
+
+NB. More useful tools for Physics 1
+pctdiff =: |@-%] NB. Percent difference from accepted value y
