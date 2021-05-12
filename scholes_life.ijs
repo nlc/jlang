@@ -1,3 +1,11 @@
+NB. https://www.youtube.com/watch?v=a9xAKttWgP4
+
+NB. The following is the script of the linked video. The transcript is
+NB. contained in the comments, while the SLOC are an approximate J translation
+NB. of the given APL.
+
+NB. ===========================================================================
+
 NB. Here is a vector of the first nine natural numbers.
 i. 9
 
@@ -11,14 +19,14 @@ r =: 1 2 3 4 7 e.~ i. 3 3
 
 NB. We can embed "r" in a slightly larger matrix, the 5-by-7 take of "r", which
 NB. pads below and on the right with zeros...
-5 7 {. 1 2 3 4 7 e.~ i. 3 3
+5 7 {. r
 
 NB. ...and we can center our original within this by doing the _2 rotate
 NB. around a vertical axis and the _1 rotate around a horizontal axis, and
-NB. we'll call NB. this larger matrix uppercase R
-R =: _1 |. _2 (|."1) 5 7 {. 1 2 3 4 7 e.~ i. 3 3
+NB. we'll call this larger matrix uppercase R
+R =: _1 |. _2 (|."1) 5 7 {. r
 
-NB. Rere is a vector of 3 matrices...
+NB. Here is a vector of 3 matrices...
 R , R ,: R
 
 NB. ...and we can see this more clearly if we copy in a library function,
@@ -34,7 +42,7 @@ disp 1 0 _1 (|."1)"0 2 R , R ,: R
 NB. We can simplify this slightly by having just one copy of "R" which is
 NB. enclosed to form a rank-0 array which is distributed to each item in the
 NB. left argument vector, so we get the same result.
-disp 1 0 _1 (|."1)"0 2 R
+disp 1 0 _1 (|."1)"0 2 R NB. TODO: Not accurate to enclosure b/c unnecessary
 
 NB. Next we'll do the 1 by 0 by _1 outer product column rotation--and outer
 NB. product takes each item of the left argument and distributes a function
@@ -52,8 +60,8 @@ disp +/ +/ 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|."1)"0 2 R
 
 NB. ...and the rules of Conway's Game of Life are that we have a 1 in the
 NB. following generation if the neighbor count including self is a 3 or if the
-NB. neighbor count including self is a 4 and the original cell was occupied,
-NB. so firstly let's find the 3s and 4s--there they are...
+NB. neighbor count including self is a 4 and the original cell was occupied.
+NB. So firstly let's find the 3s and 4s--there they are...
 disp 3 4 ="0 2 +/ +/ 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|."1)"0 2 R
 
 NB. ...and we're interested in any 3 and a 4 corresponding to an occupied
@@ -79,8 +87,8 @@ life =: 3 : 'OR/ (1 ,: y) AND 3 4 ="0 2 +/ +/ 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|
 NB. Let's test it. There are the first three generations...
 disp R , (life R) ,: (life life R)
 
-NB. ...and we can abstract this progression by making a function "gen", for
-NB. "generation", which is "life" to the power of the right argument,
+NB. ...and we can abstract this progression by making a function "gen" (for
+NB. "generation") which is "life" to the power of the right argument,
 NB. applied to the left argument...
 gen =: 4 : '(life^:y)x'
 
@@ -88,8 +96,8 @@ NB. ...so "R" bound with "gen", applied to each of the first 4 numbers, gives
 NB. us 4 generations.
 disp R & gen i. 4
 
-NB. Next let's make a larger arena still. So: RR is the 15 by 35 take of the
-NB. _10 by _20 take of R, so this is a 15 by 35 matrix of 0s and 1s, with
+NB. Next let's make a larger arena still. So: "RR" is the 15 by 35 take of the
+NB. _10 by _20 take of "R", so this is a 15 by 35 matrix of 0s and 1s, with
 NB. our original "r" in the center.
 RR =: 15 35 {. _10 _20 {. R
 
@@ -99,23 +107,23 @@ NB. to the 0s and 1s in "RR". I'll open an edit window on this so we can see
 NB. it--there we are.
 ]pic =: (u: 183 9017) {~ RR
 
-NB. And now finally I'd like to make an animation of this to show this working
+NB. And now finally I'd like to make an animation of this to show this working,
 NB. but first of all you might like to Google "Dyalog creature", and I'll say
 NB. more about this in a moment
 NB. Google: dyalog creature
 
 NB. So to make an animation, all we have to do is to apply the "life"
 NB. function under power limit to the original population--and "power limit"
-NB. finds a fixed point of its operand function life by applying it
+NB. finds a fixed point of its operand function "life" by applying it
 NB. successively to generations until the result and argument are identical.
 life ^:_ RR
 
 NB. Now I'm going to wrap this in an outer function, which is a beta
 NB. abstraction. so it doesn't change anything except it gives me the
 NB. opportunity of, as a side effect with a statement separator, updating our
-NB. picture variable using the same characters but this time selected by the
+NB. picture variable using the same characters, but this time selected by the
 NB. argument of the function that is applied by the fixed-point operation, and
-NB. changes in this global variable will be reflected in the Edit window, so
+NB. changes in this global variable will be reflected in the edit window, so
 NB. we should see it working.
 gen_draw1 =: 3 : 0
   pic =: (u: 183 9017) {~ y
@@ -127,8 +135,8 @@ gen_draw1 =: 3 : 0
 NB. Before we do so, I'll make just two small refinements: firstly, I'm not
 NB. interested in the boolean result which is the fixed point, so I'll apply
 NB. a null function to discard it, and secondly, to have a chance of seeing
-NB. it working we need, with another state statement separator, to apply a
-NB. small time delay, so let's say a delay of an eighth of a second--the
+NB. it working we need, with another statement separator, to apply a small
+NB. time delay, so let's say a delay of an eighth of a second--the
 NB. reciprocal of 8.
 gen_draw2 =: 3 : 0
   echo 27 91 50 74 27 91 72 { a.
