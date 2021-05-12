@@ -7,7 +7,7 @@ NB. Firm Model profit function from page 151
 NB. F = RQ - LW - rK
 
 NB. V / (Q ^ (eta))
-pricepersupply =: 3 :
+pricepersupply =: 3 : 0
   eta =. 1r2
   scalefactor =. paramV
   numbuyers =. x
@@ -17,7 +17,7 @@ pricepersupply =: 3 :
 
 NB. Q(L, K) = L^beta * K^(1 - beta)
 NB. L Q K
-firmproduction =: 4 :
+firmproduction =: 4 : 0
   beta =. 4r5
   numhires =. x
   borrowcapital =. y
@@ -25,7 +25,7 @@ firmproduction =: 4 :
   (numhires ^ beta) * (borrowcapital ^ 1 - beta)
 )
 
-firmprofit =: 4 :
+firmprofit =: 4 : 0
   numhires =. paramL
   borrowcapital =. paramK
   hirewages =. paramW

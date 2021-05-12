@@ -13,23 +13,30 @@ NB. the three row item replication
 NB. and the three column item replication
 (]#]#"1[: i. 2&#) 3
 
-NB. "box" denotes a function for the box numbers of a nine by nine Sudoku puzzle
-box =: [:>:]#]#"1[: i. 2&#
+NB. "box" denotes a function for the box numbers of a 9 by 9 Sudoku puzzle
+box =: ]#]#"1[: i. 2&#
 
 NB. we'll start with a smaller four by four puzzle
 box 2
 
 NB. the row-column indices of a four by four array
+([: <@,"0/~ i.) 4
 
-NB. the join of each cell with its box number, where box takes the first item of Omega to the power 1r2
-
+NB. the join of each cell with its box number, where "box" takes the first
+NB. item of Omega to the power 1r2
+(([: <@,"0/~ i.) ,&.> [: box %:) 4
+ 4
 NB. row column box numbers for each cell
+rcb =: ([: <@,"0/~ i.) ,&.> [: box %:
 
 NB. row column box numbers for a four by four puzzle
+rcb 4
 
-NB. itemwise comparison with a cell containing three three four
+NB. itemwise comparison with a cell containing three three four (-> 2 2 3)
+(<"_2) 2 2 3 (="1 1) >rcb 4 NB. NOTE: Sytax can almost certainly be improved
 
 NB. there is contention where one is a member of each cell
+1 e. &.> (<"_2) 2 2 3 (="1 1) >rcb 4
 
 NB. the outer product comparison with all cells is a rank four array
 
