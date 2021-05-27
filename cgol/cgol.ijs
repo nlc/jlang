@@ -28,11 +28,16 @@ e=:(3 3(+/e.3+0,4&{)@,;._3])@(0,0,~0,.0,.~])
 q=: 3 : '+/(3 1$i:1)&|.|:y'
 
 NB. Wolfram
-((4*_1&|.)+2&*+1&|.)@:]{((8$0),~|.@:#:)@:[
+NB. ((4*_1&|.)+2&*+1&|.)@:]{((8$0),~|.@:#:)@:[
 NB. 42 chars, okay.
 NB. ope ope four times neg one bind rot close plus two bind times plus one
 NB.   bind rot close at right from ope ope eight shape zo close rav? flex
 NB.   rot at base close at left
+
+NB. The above appears to be incorrect. Here's an "adverb" (adjective?) version.
+wolf =: 1 : '((8#2)|.@#:m){~+/1 2 4*(i:1)|."0 1 y'
+wolf30 =: 30 wolf
+NB. TODO: Add iteration based on an x argument
 
 NB. Odd-sided square matrix of powers of 2
 NB. Potentially useful for non-totalistic CA's
