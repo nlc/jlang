@@ -42,14 +42,14 @@ disp 1 0 _1 (|."1)"0 2 R , R ,: R
 NB. We can simplify this slightly by having just one copy of "R" which is
 NB. enclosed to form a rank-0 array which is distributed to each item in the
 NB. left argument vector, so we get the same result.
-disp 1 0 _1 (|."1)"0 2 R NB. TODO: Not accurate to enclosure b/c unnecessary
+disp 1 0 _1 (|."1)"0 2 R NB. NOTE: Enclosure unnecessary
 
 NB. Next we'll do the 1 by 0 by _1 outer product column rotation--and outer
 NB. product takes each item of the left argument and distributes a function
 NB. between it and each item of the right argument--so we get a table or a
 NB. matrix, in this case a 3 by 3 matrix, with our original in the center
 NB. surrounded by all possible 1-rotations.
-disp 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|."1)"0 2 R NB. TODO: not happy with this
+disp 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|."1)"0 2 R NB. NOTE: could be better
 
 NB. And if we do a column sum of the 3 by 3 matrix we get a 3-vector...
 disp +/ 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|."1)"0 2 R

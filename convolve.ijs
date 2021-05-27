@@ -13,7 +13,7 @@ NB. Get subarray from 0, 0 to 2, 2
 (0 0 ,: 2 2) ];.0 m
 
 NB. Normalize kernel to 1
-norm=%+/^:_
+norm=:%+/^:_
 
 NB. sobel convolve pgm image
 , <. 255 * (]%[:>./,) (]-[:<./,) (1 1,:3 3) (+/@:,@:*)&vsobel;._3 img
