@@ -1,1 +1,3 @@
 d =: >:@?@$ NB. 5 d 20 => 17 16 10 13 4
+
+avgsum =: [:-:[+* NB. average sum of die roll
