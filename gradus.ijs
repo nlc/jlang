@@ -15,3 +15,4 @@ NB. 10
 NB. "def" explicit definition (using Pete Corey's clever q: trick)
 NB.   plus a little ampdotco flair of my own
 gradus =: 3 : '+/&.:<:q:*./y'
+NB. AKA gradus =: [: +/&.:<: [: q: *./

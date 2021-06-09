@@ -8,4 +8,6 @@ simplex=:(i.&.<:!])@>:
 NB. Alternating sum (made tricky by the fact that
 NB.   the simple approach of gerunds is still applied
 NB.   right-to-left, which I couldn't easily deal with.
-+/(*1 _1$~$)
+NB. +/(*1 _1$~$)
+NB. Apparently I am a dope
+-/
