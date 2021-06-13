@@ -1,0 +1,13 @@
+A message written in English is encoded into plaintext by replacing all upper case
+letters by lower case letters and then replacing each letter by its 5-bit string given
+in the International Telegraph Code (see lecture notes). It is then encrypted by a
+stream cipher which uses a 4-bit shift register to generate the keyword and uses
+the addition table of Z_2 as its substitution table. The resulting ciphertext is given
+below.
+    00011 01000 11111 00110 11111 00011 10010 01001
+    00011 10110 01001 00001 11010 11001 01110
+(This can also be found on Moodle in the file stream.m). You discover that the
+first two letters in the message are TH.
+ (a) Determine the polynomial describing the shift register and find its initial state.
+ (b) Draw the shift register associated with this polynomial.
+ (c) Decrypt the ciphertext and determine the message.
