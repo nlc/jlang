@@ -74,7 +74,12 @@ NB. test
 NB. a charge of 1 nC @ <0, 0>
 NB. a charge of 2 nC @ <5, 0>
 NB. a charge of 3 nC @ <3, 2>
-myparticles =: 3 3 $ 1e_9 0 0 2e_9 5 0 3e_9 3 2
+myparticles =: 3 3 $ 1e_9 0 0 2e_9 5 0 3e_9 3 2 4e9 9 9
 NB. viewmat ^. cmag"1 myparticles efield"(2 1) ,"0/~ +&0.00001 %&10 i. 100 NB. preliminary
 NB. +/^:2(,"0/~ +&0.00001 %&100 i. 1000) * (]=(<./^:_)) cmag"1 myparticles efield"(2 1) ,"0/~ +&0.00001 %&100 i. 1000
 NB. ^ find approximately where one of the "zeros" is
+
+rim =: _1&$: : (4 : 'x ,. (x , y , x) ,. x')
+fieldmag =: cmag"1 myparticles efield"(2 1) ,"0/~ +&0.00001 %&10 i. 100
+*./"(1) 3 3 ((0 1 2 3 5 6 7 8&{>:4&{)@,);._3 (__&rim) fieldmag
+NB. ^ find whether each grid square is a local minimum
