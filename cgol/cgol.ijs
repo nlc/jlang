@@ -20,6 +20,9 @@ NB.   rav rank zo ject flex top steps one close bind rot
 
 NB. Somebody on reddit came up with this based on my original
 l=:(]=3+4=*)[:+/(>,{;~i:1)&|.
+NB. ^ a clever use of the "catalogue" verb ({ y) to directly form a cartesian
+NB. product,instead of the more common "table" adverb (u / y) over
+NB. item-wise concatenation.
 
 NB. The Rosetta Code Version:
 e=:(3 3(+/e.3+0,4&{)@,;._3])@(0,0,~0,.0,.~])
