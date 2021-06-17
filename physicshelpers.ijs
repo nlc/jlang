@@ -33,13 +33,26 @@ cross =: dyad define
   ((a2 * b3) - a3 * b2) , ((a3 * b1) - a1 * b3) , ((a1 * b2) - a2 * b1)
 )
 
-NB. More useful tools for Physics 1
-pctdiff =: |@-%] NB. Percent difference from accepted value y
+NB. Some constants
+AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
+BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23
+CoulombConstant =:CoulombsConstant =: 8.987551e9
+GravitationalConstant =: 6.674e_11
+PlanckConstant =: PlancksConstant =: 6.62607015e_34 NB. J*Hz^_1
+ReducedPlanckConstant =: ReducedPlancksConstant =: 2p_1 * PlanckConstant NB. J*Hz^_1
+SpeedOfLight =: 299792458 NB. m*s^_1
+
+NB.
+NB. More useful tools for freshman-level physics
+NB.
+
+NB. Percent difference from accepted value y
+pctdiff =: |@-%]
 
 NB. Electric field
 NB. <Q x y [z]>{1,} VERB <x y [z]>
 efield =: dyad define
-  k =. 8.987551e9
+  k =. CoulombsConstant
   data =. x
   charges =. {.&.|: data
   locations =. }.&.|: data
@@ -83,3 +96,7 @@ rim =: _1&$: : (4 : 'x ,. (x , y , x) ,. x')
 fieldmag =: cmag"1 myparticles efield"(2 1) ,"0/~ +&0.00001 %&10 i. 100
 *./"(1) 3 3 ((0 1 2 3 5 6 7 8&{>:4&{)@,);._3 (__&rim) fieldmag
 NB. ^ find whether each grid square is a local minimum
+
+NB. resistors/capacitors in series/parallel
+rseries =: cparallel =: +
+rparallel =: cseries =: +&.%
