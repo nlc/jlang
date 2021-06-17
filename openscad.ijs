@@ -6,13 +6,14 @@ NB. OpenSCAD sources on save by default so affecting the instance is as easy
 NB. as writing to the source file.
 scriptfilename =: 'test.scad'
 
-setwrite =: 1 : 'y(1!:2)<m'
+setwrite =: 1 : 'y(1!:2)<,m'
 write =: scriptfilename setwrite
 
 sphere =: 'sphere(%f);'&sprintf
-cylinder =: 'cylinder(%f,%f,%f);'&sprintf
+cylinder =: 'cylinder(%f,%f,%f,center=true);'&sprintf NB. center by default, personal preference
+cube =: 'cube([%f,%f,%f],center=true);'&sprintf NB. center by default, personal preference
 
-single3dvectorarg =: 1 : '(m , ''([%f,%f,%f]){ %s }'') sprintf (;/ x) , < y'
+single3dvectorarg =: 1 : '(m , ''([%f,%f,%f]){ %s }; '') sprintf (;/ x) , < y'
 NB. translate =: 4 : '''translate([%d,%d,%d]){ %s }'' sprintf (;/ x) , < y'
 translate =: 'translate' single3dvectorarg
 scale =: 'scale' single3dvectorarg
