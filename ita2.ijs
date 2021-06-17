@@ -33,5 +33,13 @@ idxoffirst =: [ i.M.~ [: {."1 ]
 gbf =: [:}.idxoffirst{]
 getbyfirst =: gbf"(0 2)
 letterstobits =: a.&i.@[ getbyfirst ]
-ita =: itaraw letterstobits~ ]
-itabits =: ,@ita
+itabitsrows =: itaraw letterstobits~ ]
+itabits =: ,@itabitsrows
+
+idxofrest =: [ i.M.~ [: }."1 ]
+gbr =: [:{.idxofrest{]
+getbyrest =: gbr"(1 2)
+bitstoletters =: 4 : 'a. {~ x getbyrest y'
+italetters =: itaraw bitstoletters~ ] NB. not quuuiiittteee yettttttt
+
+ita =: itabits :. italetters
