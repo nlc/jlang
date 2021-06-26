@@ -42,6 +42,9 @@ wolf =: 1 : '((8#2)|.@#:m){~+/1 2 4*(i:1)|."0 1 y'
 wolf30 =: 30 wolf
 NB. TODO: Add iteration based on an x argument
 
+NB. FIXME: A more elegant "kernel":  #. |: (i: 1) |."(0 1) y
+
+
 NB. Odd-sided square matrix of powers of 2
 NB. Potentially useful for non-totalistic CA's
 (2#1+2*])$2^[:i.[:*:1+2*]
