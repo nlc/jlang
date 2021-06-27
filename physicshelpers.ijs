@@ -100,3 +100,14 @@ NB. ^ find whether each grid square is a local minimum
 NB. resistors/capacitors in series/parallel
 rseries =: cparallel =: +
 rparallel =: cseries =: +&.%
+
+NB. experiment with loading unit definitions from the `units` command database
+unitsfilename =: '/usr/share/misc/units.lib'
+units =: a:
+3 : 0 ''
+  if. fexist unitsfilename do.
+    unitsraw =: cutopen fread unitsfilename
+
+    units =: unitsraw NB. TODO perform some processing
+  end.
+)
