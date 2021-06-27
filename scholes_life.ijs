@@ -126,7 +126,7 @@ NB. argument of the function that is applied by the fixed-point operation, and
 NB. changes in this global variable will be reflected in the edit window, so
 NB. we should see it working.
 gen_draw1 =: 3 : 0
-  pic =: (u: 183 9017) {~ y
+  pic =: y { (u: 183 9017)
   echo pic
   echo ''
   life y
@@ -139,8 +139,8 @@ NB. it working we need, with another statement separator, to apply a small
 NB. time delay, so let's say a delay of an eighth of a second--the
 NB. reciprocal of 8.
 gen_draw2 =: 3 : 0
-  echo 27 91 50 74 27 91 72 { a.
-  pic =: (u: 183 9017) {~ y
+  echo 27 91 50 74 27 91 72 { a. NB. escape code hack to clear the screen
+  pic =: y { (u: 183 9017)
   echo pic
   usleep 1e6 * 1r8
   life y
