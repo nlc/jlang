@@ -35,9 +35,9 @@ cross =: dyad define
 
 NB. Some constants
 AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
-BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23
-CoulombConstant =:CoulombsConstant =: 8.987551e9
-GravitationalConstant =: 6.674e_11
+BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23 NB. J*K^_1
+CoulombConstant =:CoulombsConstant =: 8.987551e9 NB. N*(m^2)*C^2
+GravitationalConstant =: 6.674e_11 NB. (m^3)*(kg^_1)*s^_2
 PlanckConstant =: PlancksConstant =: 6.62607015e_34 NB. J*Hz^_1
 ReducedPlanckConstant =: ReducedPlancksConstant =: 2p_1 * PlanckConstant NB. J*Hz^_1
 SpeedOfLight =: 299792458 NB. m*s^_1
