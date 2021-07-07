@@ -29,6 +29,7 @@ sin =: 1 o. ]
 cos =: 2 o. ]
 asin =: _1 o. ]
 sin2 =: [:*:[:sin]
+atan2 =: 12 o. j.
 hdist =: 4 : 0
 'lat1 lon1' =: x
 'lat2 lon2' =: y
@@ -42,5 +43,22 @@ NB. echo Chicago hdist KansasCity NB. should be about 665000
 
 Random1 =: dms2rad"(1) 2 3 $ 38 50 12.4 94 40 15.1
 Random2 =: deg2rad 38.93547296631799 94.67563079788061
+Random3 =: deg2rad 38.924123593913286 94.72772958797651
 echo 10 {. sort Random1 hdist"1/ dms2rad@". each 1 2 {"1 data
 echo 10 {. sort Random2 hdist"1/ dms2rad@". each 1 2 {"1 data
+echo 10 {. sort Random3 hdist"1/ dms2rad@". each 1 2 {"1 data
+
+NB. forward azimuth
+azimuth =: 4 : 0
+'lat1 lon1' =: x
+'lat2 lon2' =: y
+- (((cos lat1) * (sin lat2)) - ((sin lat1) * (cos lat2) * (cos lon2 - lon1))) atan2 ((sin lon2 - lon1) * cos lat2)
+)
+
+actual =: dms2rad 105 37 40
+
+NB. temp, print all
+require 'format/printf'
+(9!:37)0 256 0 1000000
+'%f,-%f' printf> 1.0&*@dms2deg@". each 1 2 {"1 data
+exit 3
