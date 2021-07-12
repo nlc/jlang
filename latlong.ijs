@@ -60,5 +60,7 @@ actual =: dms2rad 105 37 40
 NB. temp, print all
 require 'format/printf'
 (9!:37)0 256 0 1000000
-'%f,-%f' printf> 1.0&*@dms2deg@". each 1 2 {"1 data
+NB. '%f,-%f' printf> 1.0&*@dms2deg@". each 1 2 {"1 data
+require 'plot'
+'point' plot |. ;/ |: 1 _1 *"1 > 1.0&*@dms2deg@". each 1 2 {"1 data
 exit 3
