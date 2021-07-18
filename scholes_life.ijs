@@ -65,7 +65,7 @@ NB. So firstly let's find the 3s and 4s--there they are...
 disp 3 4 ="0 2 +/ +/ 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|."1)"0 2 R
 
 NB. ...and we're interested in any 3 and a 4 corresponding to an occupied
-NB. cell, which is just our original matrix R, so we AND those...
+NB. cell, which is just our original matrix "R", so we AND those...
 disp (1 ,: R) AND 3 4 ="0 2 +/ +/ 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|."1)"0 2 R
 
 NB. ...and both of these matrices contribute to the next generation, so if we
@@ -79,7 +79,7 @@ NB. variables, and that the size of the matrix "R" is not specified anywhere,
 NB. so that the expression is applicable to a matrix of any size.
 
 NB. Let's abstract this as a function by wrapping it in curly braces and
-NB. changing all occurrences of R to formal parameter omega. So this is a
+NB. changing all occurrences of "R" to formal parameter omega. So this is a
 NB. function, and we'll call this function "life".
 NB. [NOTE: curly braces -> quotes, omega -> y]
 life =: 3 : 'OR/ (1 ,: y) AND 3 4 ="0 2 +/ +/ 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|."1)"0 2 y'
