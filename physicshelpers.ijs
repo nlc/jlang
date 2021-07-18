@@ -1,3 +1,6 @@
+NB. 2D vector math stuff
+d2r =: %&180p_1
+r2d =: *&180p_1
 xy2r =: +/&.:*:
 atan2 =: 12 o. j./
 xy2a =: atan2
@@ -7,11 +10,6 @@ ra2xy =: {. * 2 1 o. {:
 c2p =: (xy2ra"1) :. (ra2xy"1)
 p2c =: (ra2xy"1) :. (xy2ra"1)
 
-NB. D1 =: 660 0
-NB. D2 =: 440 , _45 * 180p_1
-NB. D3 =: 550 , (180 + 53) % 180p_1
-NB. echo +/&.:p2c D1 , D2 ,: D3 NB. => 796.881 _1.4846
-
 padd =: +&.:p2c
 psub =: -&.:p2c
 psum =: +/&.:p2c NB. should be equiv. to padd/ but more efficient
@@ -20,9 +18,6 @@ pnorm =: (1) 0} ] NB. Simply replace the radius with 1
 cnorm =: pnorm&.:c2p
 cmag =: xy2r
 pmag =: {. NB. always assuming radius is the first
-
-d2r =: %&180p_1
-r2d =: *&180p_1
 
 dot =: +/ . * NB. also works as a matrix multiply
 
@@ -58,11 +53,11 @@ efield =: dyad define
   locations =. }.&.|: data
   point =. y
 
-  displacements =: point -"1 locations
-  mags =: cmag"1 displacements
-  norms =: cnorm"1 displacements
+  displacements =. point -"1 locations
+  mags =. cmag"1 displacements
+  norms =. cnorm"1 displacements
 
-  cfields =: norms *"(1 0) k * charges % *: mags
+  cfields =. norms *"(1 0) k * charges % *: mags
   +/ cfields
 )
 
@@ -76,10 +71,10 @@ epotential =: dyad define
   locations =. }.&.|: data
   point =. y
 
-  displacements =: point -"1 locations
-  mags =: cmag"1 displacements
+  displacements =. point -"1 locations
+  mags =. cmag"1 displacements
 
-  cfields =: k * charges % mags
+  cfields =. k * charges % mags
   +/ cfields
 )
 
