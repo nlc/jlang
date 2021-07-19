@@ -4,8 +4,8 @@ NB. Hell yeah
 NB. 46 chars, not terrible.
 +/@+/@((3 1$i:1)&|.@|:"2)^:2([=3+4=*)]
 NB. 38 chars with a different approach
-+/+/(,"0/~@i:1)&|. m
-([:+/[:+/(,"0/~@i:1)&|.) m
+NB. +/+/(,"0/~@i:1)&|. m
+NB. ([:+/[:+/(,"0/~@i:1)&|.) m
 
 NB. This is the one.
 l=:(]=3+4=*)[:+/[:+/(,"0/~@i:1)&|.
@@ -83,4 +83,4 @@ egls =: ([:(_1&|.&.|:)"2[:(_1&|.)"2([:,&0,&0&.|:)"2^:2) gls
 isgl =: [:+/egls&(-:"2)
 +/^:_(1 1 ,: 5 5)(isgl);._3 g NB. count all the detected gliders
 NB. Take "close-up shots" of the species of gliders found
-egls#~ +/^:2(1 1 ,: 5 5)(egls&(-:"2));._3 g
+NB. egls#~ +/^:2(1 1 ,: 5 5)(egls&(-:"2));._3 g
