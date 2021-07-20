@@ -106,3 +106,5 @@ units =: a:
     units =: unitsraw NB. TODO perform some processing
   end.
 )
+
+commutator =: 2 : '(u v y) - (v u y)'
