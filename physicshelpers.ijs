@@ -123,4 +123,5 @@ minkowski =: minkowskimt metrictensor
 minkowski2 =: minkowski2mt metrictensor
 
 NB. NB. Cute diagram
+NB. require 'viewmat'
 NB. viewmat 0 0 minkowski2"1/~ ,"0/~ 10 %~ i: 10
