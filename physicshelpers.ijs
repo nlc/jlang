@@ -107,4 +107,20 @@ units =: a:
   end.
 )
 
-commutator =: 2 : '(u v y) - (v u y)'
+commutator =: 2 : '(u v y) - (v u y)' NB. QM commutation operator
+
+I =: =/~@i.
+
+NB. Create a "squred-distance" measurebased on a metric signature
+metrictensor =: 1 : '+/ m +/ . * *: y - x'
+euclidean2mt =: I 2
+euclidean3mt =: I 3
+minkowskimt =: _1 1 1 1 * I 4
+minkowski2mt =: _1 1 * I 2
+euclidean2 =: euclidean2mt metrictensor
+euclidean3 =: euclidean3mt metrictensor
+minkowski =: minkowskimt metrictensor
+minkowski2 =: minkowski2mt metrictensor
+
+NB. NB. Cute diagram
+NB. viewmat 0 0 minkowski2"1/~ ,"0/~ 10 %~ i: 10
