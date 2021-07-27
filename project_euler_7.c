@@ -3,7 +3,7 @@
 
 #define uint unsigned int
 
-/* let's see how this motherfucker handles a static array of size 200k */
+/* let's see how this bad boy handles a static array of size 200k */
 #define TSIZE 200000
 uint composite[TSIZE] = { 0 };
 
@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
   }
 
   if(!printAll && count < target) {
-    printf("that prime index is out of range (%u > %u)!\n", count, target);
+    printf("that prime index is out of range (%u > %u)!\n", target, count);
   }
 
   return 0;
