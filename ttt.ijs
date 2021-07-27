@@ -22,8 +22,7 @@ haswon =: 3 : 'OR/ AND/"1 wins ([=AND"1) , y'
 NB. detect and print end state (assumes game is over)
 endstate pick~ +/ 1 2 * haswon "2 omx ,: omo
 
-
-NB. The beginnings of another way to detect wins
+NB. Another way to detect wins
 p =: p: i. 2 3 3
 m =: 2 3 3 $ 0 0 1 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 NB. or whatever
 pnz =: */@(#~|@*)@, NB. Product of Non-Zero elements
