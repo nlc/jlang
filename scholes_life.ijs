@@ -23,7 +23,7 @@ NB. pads below and on the right with zeros...
 
 NB. ...and we can center our original within this by doing the _2 rotate
 NB. around a vertical axis and the _1 rotate around a horizontal axis, and
-NB. we'll call this larger matrix uppercase R
+NB. we'll call this larger matrix uppercase "R".
 R =: _1 |. _2 (|."1) 5 7 {. r
 
 NB. Here is a vector of 3 matrices...
@@ -64,7 +64,7 @@ NB. neighbor count including self is a 4 and the original cell was occupied.
 NB. So firstly let's find the 3s and 4s--there they are...
 disp 3 4 ="0 2 +/ +/ 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|."1)"0 2 R
 
-NB. ...and we're interested in any 3 and a 4 corresponding to an occupied
+NB. ...and we're interested in any 3, and a 4 corresponding to an occupied
 NB. cell, which is just our original matrix "R", so we AND those...
 disp (1 ,: R) AND 3 4 ="0 2 +/ +/ 1 0 _1 (] .(|."0 2)"1 2) 1 0 _1 (|."1)"0 2 R
 
@@ -105,11 +105,11 @@ NB. And it's easier to see this if I make a corresponding array of characters,
 NB. so we'll make a picture which uses a dot and a domino shape corresponding
 NB. to the 0s and 1s in "RR". I'll open an edit window on this so we can see
 NB. it--there we are.
-]pic =: (u: 183 9017) {~ RR
+]pic =: RR { u: 183 9017
 
 NB. And now finally I'd like to make an animation of this to show this working,
 NB. but first of all you might like to Google "Dyalog creature", and I'll say
-NB. more about this in a moment
+NB. more about this in a moment.
 NB. Google: dyalog creature
 
 NB. So to make an animation, all we have to do is to apply the "life"
