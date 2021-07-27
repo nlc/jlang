@@ -1,3 +1,5 @@
+NB. Unless otherwise noted, everything is assumed to be MKS
+
 NB. 2D vector math stuff
 d2r =: %&180p_1
 r2d =: *&180p_1
@@ -36,13 +38,14 @@ GravitationalConstant =: 6.674e_11 NB. (m^3)*(kg^_1)*s^_2
 PlanckConstant =: PlancksConstant =: 6.62607015e_34 NB. J*Hz^_1
 ReducedPlanckConstant =: ReducedPlancksConstant =: 2p_1 * PlanckConstant NB. J*Hz^_1
 SpeedOfLight =: 299792458 NB. m*s^_1
+SpeedOfLightSquared =: *: SpeedOfLight NB. (m*s^_1)^2
 
 NB.
 NB. More useful tools for freshman-level physics
 NB.
 
-NB. Percent difference from accepted value y
-pctdiff =: |@-%]
+NB. Percent difference from accepted value x
+pctdiff =: |@-%[
 
 NB. Electric field
 NB. <Q x y [z]>{1,} VERB <x y [z]>
@@ -86,11 +89,10 @@ myparticles =: 3 3 $ 1e_9 0 0 2e_9 5 0 3e_9 3 2 4e9 9 9
 NB. viewmat ^. cmag"1 myparticles efield"(2 1) ,"0/~ +&0.00001 %&10 i. 100 NB. preliminary
 NB. +/^:2(,"0/~ +&0.00001 %&100 i. 1000) * (]=(<./^:_)) cmag"1 myparticles efield"(2 1) ,"0/~ +&0.00001 %&100 i. 1000
 NB. ^ find approximately where one of the "zeros" is
-
-rim =: _1&$: : (4 : 'x ,. (x , y , x) ,. x')
-fieldmag =: cmag"1 myparticles efield"(2 1) ,"0/~ +&0.00001 %&10 i. 100
-*./"(1) 3 3 ((0 1 2 3 5 6 7 8&{>:4&{)@,);._3 (__&rim) fieldmag
-NB. ^ find whether each grid square is a local minimum
+NB. rim =: _1&$: : (4 : 'x ,. (x , y , x) ,. x')
+NB. fieldmag =: cmag"1 myparticles efield"(2 1) ,"0/~ +&0.00001 %&10 i. 100
+NB. *./"(1) 3 3 ((0 1 2 3 5 6 7 8&{>:4&{)@,);._3 (__&rim) fieldmag
+NB. NB. ^ find whether each grid square is a local minimum
 
 NB. resistors/capacitors in series/parallel
 rseries =: cparallel =: +
@@ -111,17 +113,26 @@ commutator =: 2 : '(u v y) - (v u y)' NB. QM commutation operator
 
 I =: =/~@i.
 
-NB. Create a "squred-distance" measurebased on a metric signature
-metrictensor =: 1 : '+/ m +/ . * *: y - x'
-euclidean2mt =: I 2
+NB. Create a "squred-distance" measure based on a metric signature
+metric =: 1 : '+/ m +/ . * *: y - x'
+euclidean2mt =: I 2 NB. 2D Euclidean metric tensor
 euclidean3mt =: I 3
 minkowskimt =: _1 1 1 1 * I 4
 minkowski2mt =: _1 1 * I 2
-euclidean2 =: euclidean2mt metrictensor
-euclidean3 =: euclidean3mt metrictensor
-minkowski =: minkowskimt metrictensor
-minkowski2 =: minkowski2mt metrictensor
+euclidean2 =: euclidean2mt metric
+euclidean3 =: euclidean3mt metric
+minkowski =: minkowskimt metric
+minkowski2 =: minkowski2mt metric
 
+NB. tempdata =: 0 0 minkowski2"1/~ ,"0/~ 10 %~ i: 100
 NB. NB. Cute diagram
 NB. require 'viewmat'
-NB. viewmat 0 0 minkowski2"1/~ ,"0/~ 10 %~ i: 10
+NB. viewmat tempdata
+NB. NB. Surface plot
+NB. require 'plot'
+NB. 'wire' plot tempdata
+
+NB. Planck's Law (Blackbody Distribution)
+NB. B(lambda, T) = ((2*h*c^2)/(lambda^5))*(1/(exp(hc/lambda*kB*T)-1))
+NB. m -> W*sr^_1*m^_3
+planckslaw =: ((2 * PlancksConstant * SpeedOfLightSquared) % 5 ^~ ]) * [: % 1 -~ [: ^ (PlancksConstant * SpeedOfLight) % ] * BoltzmannsConstant * [
