@@ -33,3 +33,4 @@ NB. e.g. a diagonal of (X?)s from top-right to bottom-left is 935 = 5 * 11 * 17
 NB. if the product of all nonzero elements is divisible by 935, then that
 NB. pattern is present.
 awc =: pnz"2 (p) *"2/ (8 3 3 ($,) wins) NB. All Win Conditions
+echo OR/"(1) 0 = awc | state
