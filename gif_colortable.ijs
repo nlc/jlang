@@ -26,13 +26,16 @@ process =: 3 : 0
 
     colordata =. (ncolors , 3) $ #. 2 2 2 2 2 2 2 2 #: (13 + i. nbytes) { a. i. data
     NB. '#%02X%02X%02X' printf colordata
-    echo colordata
+    NB. echo colordata
 
     colordata export 'temp_colortable.ppm'
 
     NB. dizzle
     NB. diz =. (a. {~ , sort&.:-"1 colordata) (11 + i. nbytes) } data
-    NB. diz 1!:2 < 'dizzled.gif'
+    NB. diz =. (a. {~ (? nbytes # 256)) (13 + i. nbytes) } data
+    NB. diz =. (a. {~ , (|: colordata)) (13 + i. nbytes) } data
+    diz =. (a. {~ , (64 16 16 XOR "1 colordata)) (13 + i. nbytes) } data
+    diz 1!:2 < 'dizzled.gif'
   else.
     echo 'No global color table!'
   end.
