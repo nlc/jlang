@@ -38,10 +38,20 @@ AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
 BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23 NB. J*K^_1
 CoulombConstant =:CoulombsConstant =: 8.987551e9 NB. N*(m^2)*C^2
 GravitationalConstant =: 6.674e_11 NB. (m^3)*(kg^_1)*s^_2
+PermeabilityOfFreeSpace =: VacuumPermeability =: MuNaught =: 1.25663706212e_6 NB. H*m^_1
+PermittivityOfFreeSpace =: VacuumPermittivity =: EpsilonNaught =: 8.8541878176e_12 NB. F*m^_1
 PlanckConstant =: PlancksConstant =: 6.62607015e_34 NB. J*Hz^_1
 ReducedPlanckConstant =: ReducedPlancksConstant =: 2p_1 * PlanckConstant NB. J*Hz^_1
 SpeedOfLight =: 299792458 NB. m*s^_1
-SpeedOfLightSquared =: *: SpeedOfLight NB. (m*s^_1)^2
+SpeedOfLightSquared =: *: SpeedOfLight NB. (m^2)*s^_2
+
+NB. Some useful values
+EarthRadius =: 6.3781e6 NB. m
+EarthMass =: 5.9722e24 NB. kg
+ElementaryCharge =: 1.602176634e_19 NB. C
+ElectronMass =: 9.1093837015e_31 NB. kg (rest mass)
+ProtonMass =: 1.67262192369e_27 NB. kg (rest mass)
+StandardGravity =: 9.80665 NB. m*s_2
 
 NB.
 NB. More useful tools for freshman-level physics
@@ -71,7 +81,7 @@ NB. This and the above could stand a refactor into maybe an adverb form
 NB. Electric potential
 NB. <Q x y [z]>{1,} VERB <x y [z]>
 epotential =: dyad define
-  k =. 8.987551e9
+  k =. CoulombsConstant
   data =. x
   charges =. {.&.|: data
   locations =. }.&.|: data
