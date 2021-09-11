@@ -17,7 +17,7 @@ process =: 3 : 0
   data =. (1!:1) < ifname
   lsd =. a. i. 10 { data NB. Logical Screen Descriptor
 
-  if. lsd AND #: 1 0 0 0 0 0 0 0 do.
+  if. lsd AND 128 do.
     ctn =. _3&{.&.#: lsd NB. Color Table Number
     ncolors =. 2&^@>: ctn
     nbytes =. ncolors * 3
