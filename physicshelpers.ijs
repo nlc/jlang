@@ -9,6 +9,9 @@ xy2a =: atan2
 xy2ra =: xy2r , xy2a
 ra2xy =: {. * 2 1 o. {:
 
+atr =: ,
+atd =: atr d2r
+
 c2p =: (xy2ra"1) :. (ra2xy"1)
 p2c =: (ra2xy"1) :. (xy2ra"1)
 
