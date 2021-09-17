@@ -1,4 +1,4 @@
-progbartest =: 1 : '''['' , (''* ''#~ (],20&-) (<. 0.5 + m * y % x)) , '']'''
+NB. progbartest =: 1 : '''['' , (''* ''#~ (],20&-) (<. 0.5 + m * y % x)) , '']'''
 
 progressbar =: 2 : 0
   innerlength =: m
