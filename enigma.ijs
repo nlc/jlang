@@ -21,6 +21,27 @@ chrfwd =: a. {~ 65 + ]
 ord =: ordfwd :. chrfwd
 chr =: chrfwd :. ordfwd
 
+Note 'Operation'
+  'initial machine state' Enigma 'plaintext' ?
+  => 'ciphertext'                            ?
+
+  What if you want to encode another message afterward?
+
+  Ugly as it is, maybe some nested boxes, like
+  Enigma [ 'initial machine state' | 'plaintext' ]
+
+  That would allow a more purely functional approach.
+)
+
+lastboxof =: _1}
+
+advancerotors =: 3 : 0
+  NB. notches =. x
+  rotors =. y
+
+  (1&|. each _1 { rotors) lastboxof rotors
+)
+
 rotorsdata =: > cutopen each cutopen fread 'enigma_rotors.txt'
 'allrotornames allrotorstrs allnotchstrs' =: |: rotorsdata
 allrotors =: ord allrotorstrs NB. Turn rotors into permutation info
@@ -42,7 +63,18 @@ reflector =: 1 { allreflectors
 plaintextstr =: 'ABCDE'
 plaintext =: ord plaintextstr
 configuration =: (/: each |. rotors) , reflector ; rotors
-ciphertext =: > {~each/ configuration ,< plaintext NB. append plaintext, and then just reduce on indexing!
+configurationaaa =: configuration
+configurationaab =: (/: each |. advancerotors rotors) , reflector ; advancerotors rotors
+configurationaac =: (/: each |. advancerotors^:2 rotors) , reflector ; advancerotors^:2 rotors
+NB. ciphertext =: > {~each/ configuration ,< plaintext NB. append plaintext, and then just reduce on indexing!
+alphaaaa =: > {~each/ configurationaaa NB. to get the current mapping, just reduce over the configurations on indexing!
+alphaaab =: > {~each/ configurationaab NB. to get the current mapping, just reduce over the configurations on indexing!
+alphaaac =: > {~each/ configurationaac NB. to get the current mapping, just reduce over the configurations on indexing!
+echo alphaaaa
+echo alphaaab
+echo alphaaac
+
+alpha =: > {~each/ configuration NB. to get the current mapping, just reduce over the configurations on indexing!
 
 echo chr ciphertext
 
@@ -72,25 +104,4 @@ Note 'Odometer'
   Make sure to properly implement a "double-stepping" index
   generator because using the standard odo function will not
   give valid output.
-)
-
-Note 'Operation'
-  'initial machine state' Enigma 'plaintext' ?
-  => 'ciphertext'                            ?
-
-  What if you want to encode another message afterward?
-
-  Ugly as it is, maybe some nested boxes, like
-  Enigma [ 'initial machine state' | 'plaintext' ]
-
-  That would allow a more purely functional approach.
-)
-
-lastboxof =: _1}
-
-advancerotors =: 4 : 0
-  notches =. x
-  rotors =. y
-
-  (1&|. each _1 { rotors) lastboxof rotors
 )
