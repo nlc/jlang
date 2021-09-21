@@ -15,9 +15,13 @@ atd =: atr d2r
 c2p =: (xy2ra"1) :. (ra2xy"1)
 p2c =: (ra2xy"1) :. (xy2ra"1)
 
-padd =: +&.:p2c
-psub =: -&.:p2c
-psum =: +/&.:p2c NB. should be equiv. to padd/ but more efficient
+cadd =: +
+csub =: +
+csum =: +/
+
+padd =: cadd&.:p2c
+psub =: csub&.:p2c
+psum =: csum&.:p2c NB. should be equiv. to padd/ but more efficient
 
 pnorm =: (1) 0} ] NB. Simply replace the radius with 1
 cnorm =: pnorm&.:c2p
@@ -26,6 +30,7 @@ pmag =: {. NB. always assuming radius is the first
 
 sin =: 1&o.
 cos =: 2&o.
+tan =: 3&o.
 
 dot =: +/ . * NB. also works as a matrix multiply
 
