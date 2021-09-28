@@ -16,7 +16,7 @@ c2p =: (xy2ra"1) :. (ra2xy"1)
 p2c =: (ra2xy"1) :. (xy2ra"1)
 
 cadd =: +
-csub =: +
+csub =: -
 csum =: +/
 
 padd =: cadd&.:p2c
