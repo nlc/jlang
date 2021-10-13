@@ -1,0 +1,76 @@
+Note 'OED'
+  Using this text dictionary has advantages (i.e. wide range
+  of bigrams + pretty good english content) but also potential
+  disadvantages (e.g. "adj" is going to show up WAY more than
+  in normal english). Evaluate.
+)
+fname =: '~/Downloads/Oxford English Dictionary.txt'
+
+ftext =: toupper fread fname
+alphabet =: a. {~ 65 + i. 26
+corpus =: ftext ([#~e.) alphabet
+
+NB. utility funcs
+odo =: #: i.@(*/) NB. hui
+occursin =: [: +/ E.
+
+NB. generate frequencies of ngrams of length y from corpus x
+genngrams =: 4 : 0
+  corpus =. x
+  nn =. y
+  ngrams =. alphabet {~ odo nn # 26
+
+  counts =. ngrams occursin"1 corpus NB. FIXME dumb way to do it
+  freqs =. counts % # corpus
+
+  NB. don't need to return the ngrams--they're
+  NB. just sequential base-26 numbers!
+  freqs
+)
+
+condition =: ([: I. 0 = ]) } NB. replace zeros in y with x
+NB. condition with 1x_20 to put a nice even _20 in there
+
+ngramidx =: (#alphabet) #. alphabet&i.
+ngramfreq =: {~ ngramidx@]
+
+Note 'trigram example'
+     +/ 3 ((^. 1x_20 condition data3) ngramfreq ]) \ 'QUICKBROWNFOX'
+  _97.4088
+     +/ 3 ((^. 1x_20 condition data3) ngramfreq ]) \ alphabet {~ ? 13 # 26
+  _153.03
+)
+
+initdata =: 3 : 0
+  data2 =: corpus genngrams 2
+  data3 =: corpus genngrams 3
+  data4 =: corpus genngrams 4
+
+  biscore =: [: +/ 2 ((^. 1x_20 condition data2) ngramfreq ]) \ ]
+  triscore =: [: +/ 3 ((^. 1x_20 condition data3) ngramfreq ]) \ ]
+  tetrascore =: [: +/ 4 ((^. 1x_20 condition data4) ngramfreq ]) \ ]
+)
+
+Note 'Possibly useful'
+  It's difficult to set a threshold for how high a score needs to be to "count"
+  as "english-y", not least because the score scale is completely dependent on
+  string length.
+  However, it may be useful to compare the score of a string with that of its
+  reverse--a random string should be expected not have a big difference,
+  but reversing legitimate text should reduce the score a lot.
+  Very limited experimentation suggests a threshold of something like 0.9 to
+  establish that a string is remotely salient, and 0.75 to strongly suggest
+  "englishness".
+  Similarly-limited experimentation suggests that the meta-score thus obtained
+  is *somewhat* independent of text length, although the changes are less
+  stable with shorter texts and flatten out as they become longer.
+  Suffice it to say that it should be *less* sensitive to text length but not
+  perfectly independent. As in most cases, longer texts are better here.
+
+     %/ - tetrascore"1 (,:|.) 'JAAJSLDFAHGVYAOMCBAZFHEUOINQGQJOAHIKNJ' 
+  0.975041
+     %/ - tetrascore"1 (,:|.) 'JAAJSLDFAHISHALLICOMPARETHEETOAJOAHIKN'
+  0.76875
+     %/ - tetrascore"1 (,:|.) 'SHALLICOMPARETHEETOASUMMERSDAYTHOUARTM'
+  0.690664
+)
