@@ -42,13 +42,17 @@ Note 'trigram example'
 )
 
 initdata =: 3 : 0
+  data1 =: corpus genngrams 1
   data2 =: corpus genngrams 2
   data3 =: corpus genngrams 3
   data4 =: corpus genngrams 4
 
+  monoscore =: [: +/ 1 ((^. 1x_20 condition data1) ngramfreq ]) \ ]
   biscore =: [: +/ 2 ((^. 1x_20 condition data2) ngramfreq ]) \ ]
   triscore =: [: +/ 3 ((^. 1x_20 condition data3) ngramfreq ]) \ ]
   tetrascore =: [: +/ 4 ((^. 1x_20 condition data4) ngramfreq ]) \ ]
+
+  ''
 )
 
 Note 'Possibly useful'
