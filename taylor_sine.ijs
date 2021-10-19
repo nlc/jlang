@@ -5,9 +5,4 @@ Note 'Sine Taylor series'
   0 1 0 , (-%!3) , 0 , (%!5) , 0 , (-%!7) , 0 ...
 )
 
-stc =: 0 1 0 , (-%!3) , 0 , (%!5) , 0 , (-%!7) , 0 , (%!9) NB. error is under 1e_9 up to 0.7
-
-NB. generate algorithmically?
-NB. note that 1j1&# is useful for
-NB. inserting zeroes between the
-NB. elements of a list.
+sincoefs =: [: }: 0 , 1j1 # (_1&^ % !@>:@+:)"0 @ i.
