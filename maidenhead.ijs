@@ -6,6 +6,7 @@ Note 'Maidenhead coordinates'
     * add flexibility to deal with arbitrary(?) precision
       - at least 6- and 8-char formats
     * either return *middle* of square or the bounds
+    * add a way to do it in reverse
 )
 
 offsets =: 65 48 97 48

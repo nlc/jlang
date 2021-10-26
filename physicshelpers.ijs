@@ -52,6 +52,7 @@ PlanckConstant =: PlancksConstant =: 6.62607015e_34 NB. J*Hz^_1
 ReducedPlanckConstant =: ReducedPlancksConstant =: 2p_1 * PlanckConstant NB. J*Hz^_1
 SpeedOfLight =: 299792458 NB. m*s^_1
 SpeedOfLightSquared =: *: SpeedOfLight NB. (m^2)*s^_2
+StefanBoltzmannConstant =: (2r15 * 1p5 * (BoltzmannsConstant ^ 4)) % (SpeedOfLightSquared * PlancksConstant ^ 3)
 
 NB. Some useful values
 EarthRadius =: 6.3781e6 NB. m
@@ -60,6 +61,15 @@ ElementaryCharge =: 1.602176634e_19 NB. C
 ElectronMass =: 9.1093837015e_31 NB. kg (rest mass)
 ProtonMass =: 1.67262192369e_27 NB. kg (rest mass)
 StandardGravity =: 9.80665 NB. m*s_2
+SolarConstant =: 1360.8 NB. W*m_2
+
+NB. Temperature conversions
+KtoC =: -&273.15
+CtoK =: KtoC^:_1
+CtoF =: 32 9r5&p.
+FtoC =: CtoF^:_1
+KtoF =: CtoF@KtoC
+FtoK =: KtoF^:_1
 
 NB.
 NB. More useful tools for freshman-level physics
