@@ -42,9 +42,35 @@ cross =: dyad define
 )
 
 NB. rotation/translation matrices
-NB. ensure that you (3 take) the vector before applying
 rmat=: 1 (< 2 2) } 3 3 {. 2 2 $ 1 _1 1 1 * 2 1 1 2&o.
 tmat =: ] ((0 2 ; 1 2) })&(=/~@i.3)
+NB. have to ensure the vector is in homogeneous coordinates: <x, y, 1>
+homogeneousfwd =: ,&1"1
+homogeneousinv =: _1&}."1
+homogeneous =: homogeneousfwd :. homogeneousinv
+Note 'Example: Rotate a square by the top right corner'
+     ]pts =: 4 2 $ 0 0 1 0 0 1 1 1
+  0 0
+  1 0
+  0 1
+  1 1
+     (((tmat 1 1) dot (rmat _1r4p1) dot (%. tmat 1 1)) dot"(2 1) ])&.:homogeneous pts
+  _0.414214        1
+   0.292893 0.292893
+   0.292893  1.70711
+          1        1
+)
+
+avg =: +/%#
+
+NB. Center Of Gravity for set of discrete points
+NB. Optionally add masses as x argument
+NB. cog =: 3 : 0
+NB.   avg y
+NB. :
+NB.   (+/ x * y) % (+/ x)
+NB. )
+cog =: avg : (+/@:* % +/@:[) NB. p sure this works but keeping explicit ver. around jic
 
 NB. Some constants
 AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
