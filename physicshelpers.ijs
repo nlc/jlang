@@ -41,6 +41,11 @@ cross =: dyad define
   ((a2 * b3) - a3 * b2) , ((a3 * b1) - a1 * b3) , ((a1 * b2) - a2 * b1)
 )
 
+NB. rotation/translation matrices
+NB. ensure that you (3 take) the vector before applying
+rmat=: 1 (< 2 2) } 3 3 {. 2 2 $ 1 _1 1 1 * 2 1 1 2&o.
+tmat =: ] ((0 2 ; 1 2) })&(=/~@i.3)
+
 NB. Some constants
 AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
 BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23 NB. J*K^_1
