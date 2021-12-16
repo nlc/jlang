@@ -60,6 +60,9 @@ Note 'Example: Rotate a square by the top right corner'
    0.292893  1.70711
           1        1
 )
+rundert =: 4 : '(tmat y) dot (rmat x) dot (%. tmat y)'
+transform =: 4 : '(x dot"(2 1) ])&.:homogeneous y'
+NB. The equivalent to the above is then: (_1r4p1 rundert 1 1) transform pts
 
 avg =: +/%#
 
@@ -75,6 +78,7 @@ cog =: avg : (+/@:* % +/@:[) NB. p sure this works but keeping explicit ver. aro
 NB. Some constants
 AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
 BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23 NB. J*K^_1
+GasConstant =: AvogadrosNumber * BoltzmannsConstant NB. J*(K*mol)^_1
 CoulombConstant =:CoulombsConstant =: 8.987551e9 NB. N*(m^2)*C^2
 GravitationalConstant =: 6.674e_11 NB. (m^3)*(kg^_1)*s^_2
 PermeabilityOfFreeSpace =: VacuumPermeability =: MuNaught =: 1.25663706212e_6 NB. H*m^_1
@@ -173,7 +177,7 @@ units =: a:
 
 commutator =: 2 : '(u v y) - (v u y)' NB. QM commutation operator
 
-I =: =/~@i.
+I =: =/~@i. NB. Identity matrix of dimension y
 
 NB. Create a "squred-distance" measure based on a metric signature
 metric =: 1 : '+/ m +/ . * *: y - x'
@@ -194,7 +198,8 @@ NB. NB. Surface plot
 NB. require 'plot'
 NB. 'wire' plot tempdata
 
-NB. Planck's Law (Blackbody Distribution)
-NB. B(lambda, T) = ((2*h*c^2)/(lambda^5))*(1/(exp(hc/lambda*kB*T)-1))
-NB. m -> W*sr^_1*m^_3
+Note 'Planck''s Law (Blackbody Distribution)'
+  B(lambda, T) = ((2*h*c^2)/(lambda^5))*(1/(exp(hc/lambda*kB*T)-1))
+  m -> W*sr^_1*m^_3
+)
 planckslaw =: ((2 * PlancksConstant * SpeedOfLightSquared) % 5 ^~ ]) * [: % 1 -~ [: ^ (PlancksConstant * SpeedOfLight) % ] * BoltzmannsConstant * [
