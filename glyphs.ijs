@@ -26,6 +26,34 @@ vflip =: vreverse@vmirror
 
 quad =: (,"1 hflip)@(,vflip)
 
-echo quad 5 mash subglyphs
+echo quad 16 mash subglyphs
 
 NB. neat: quad 2 3 mash subglyphs
+
+
+Note 'Some configs'
+  ┌  ┐   4x4 double mirrored
+
+
+  └  ┘
+
+  ┬┬┬┬   4x4 vertical mirrored
+
+
+  ┴┴┴┴
+
+  ├  ┤   4x4 horizontal mirrored
+  ├  ┤
+  ├  ┤
+  ├  ┤
+
+  │┬┬┬   left radical + 3x4 vertical mirrored
+  │
+  │
+  │┴┴┴
+
+  │├ ┤  left radical + 3x4 horizontal mirrored
+  │├ ┤
+  │├ ┤
+  │├ ┤
+)
