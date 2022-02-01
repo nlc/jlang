@@ -131,7 +131,7 @@ efield =: dyad define
   norms =. cnorm"1 displacements
 
   cfields =. norms *"(1 0) k * charges % *: mags
-  +/ cfields
+  +/"2 ,: cfields
 )
 
 NB. This and the above could stand a refactor into maybe an adverb form
@@ -223,5 +223,7 @@ NB. 'wire' plot tempdata
 Note 'Planck''s Law (Blackbody Distribution)'
   B(lambda, T) = ((2*h*c^2)/(lambda^5))*(1/(exp(hc/lambda*kB*T)-1))
   m -> W*sr^_1*m^_3
+
+  T planckslaw lambda
 )
 planckslaw =: ((2 * PlancksConstant * SpeedOfLightSquared) % 5 ^~ ]) * [: % 1 -~ [: ^ (PlancksConstant * SpeedOfLight) % ] * BoltzmannsConstant * [
