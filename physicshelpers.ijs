@@ -79,8 +79,8 @@ NB. Universal constants
 AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
 BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23 NB. J*K^_1
 CoulombConstant =:CoulombsConstant =: 8.987551e9 NB. N*(m^2)*C^2
-ElementaryCharge =: 1.602176634e_19 NB. C
-FineStructureConstant =: CoulombsConstant * (ElementaryCharge ^ 2) % ReducedPlancksConstant * SpeedOfLight
+ElementaryCharge =: ElectronCharge =: 1.602176634e_19 NB. C
+FineStructureConstant =: Alpha =: CoulombsConstant * (ElementaryCharge ^ 2) % ReducedPlancksConstant * SpeedOfLight
 GasConstant =: AvogadrosNumber * BoltzmannsConstant NB. J*(K*mol)^_1
 GravitationalConstant =: 6.674e_11 NB. (m^3)*(kg^_1)*s^_2
 PermeabilityOfFreeSpace =: VacuumPermeability =: MuNaught =: 1.25663706212e_6 NB. H*m^_1
@@ -185,6 +185,16 @@ NB. NB. ^ find whether each grid square is a local minimum
 NB. resistors/capacitors in series/parallel
 rseries =: cparallel =: +
 rparallel =: cseries =: +&.%
+
+NB. Photon wavelength/frequency/energy
+wavelength2frequency =: lambda2f =: SpeedOfLight&%
+frequency2wavelength =: f2lambda =: wavelength2frequency^:_1
+wavelength2energy =: lambda2e =: (PlancksConstant * SpeedOfLight)&%
+energy2wavelength =: e2lambda =: wavelength2energy^:_1
+frequency2energy =: f2e =: (PlancksConstant * SpeedOfLight)&%@frequency2wavelength
+energy2frequency =: e2f =: frequency2energy^:_1
+ev2j =: *&ElementaryCharge
+j2ev =: ev2j^:_1
 
 NB. experiment with loading unit definitions from the `units` command database
 unitsfilename =: '/usr/share/misc/units.lib'
