@@ -1,8 +1,8 @@
 NB. Unless otherwise noted, everything is assumed to be MKS
 
 NB. 2D vector math stuff
-d2r =: %&180p_1
-r2d =: *&180p_1
+d2r =: deg =: %&180p_1
+r2d =: rad =: *&180p_1
 xy2r =: +/&.:*:
 atan2 =: 12 o. j./
 xy2a =: atan2

@@ -13,6 +13,8 @@ Th =: Om&*
 falan =: sec2day Th^:(_1) 2p1
 
 'Ringworld rotates at %f miles per second' printf m2mi V
-'%f Earth days in one Ringworld rotation' printf falan
+'%f Earth days in one Ringworld rotation (falan)' printf falan
+
+NB. A falan is only 25 minutes shy of exactly 9 days
 
 exit 1
