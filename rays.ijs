@@ -47,6 +47,16 @@ pair_to_sise =: 3 : 0
   end.
 )
 
+sise_to_pair =: 3 : 0
+  'b1 m1 s1 e1' =. y
+
+  if. m1 = _ do.
+    2 2 $ b1 , s1 , b1 , e1
+  else.
+    (s1 , e1) ,"0 ((b1 , m1) p. s1 , e1)
+  end.
+)
+
 isvertical =: 3 : 0
   _ = 1 { y
 )
@@ -66,11 +76,16 @@ sise_intersection =: 4 : 0
   if. i = IND do.
     IND
   else.
-    NB. need to check either vertical, and whether both contain the point (vertically OR horizontally)--8 poss.
-    if. ((isvertical x) AND (() p. s1 , e1) contains {. i) OR ((-. isvertical x) AND (s1 , e1) contains {: i) do.
+    v1 =. isvertical x
+    v2 =. isvertical y
+    if. (-. v1) AND (-. v2) AND ((s1 , e1) contains {. i) AND ((s2 , e2) contains {. i) do.
+      i
+    elseif. (v1) AND (-. v2) AND ((s1 , e1) contains {: i) AND ((s2 , e2) contains {. i) do.
+      i
+    elseif. (-. v1) AND (v2) AND ((s1 , e1) contains {. i) AND ((s2 , e2) contains {: i) do.
       i
     else.
-      IND
+      IND NB. both vertical, no intersection
     end.
   end.
 )
