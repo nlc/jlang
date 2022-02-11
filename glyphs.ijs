@@ -26,7 +26,7 @@ vflip =: vreverse@vmirror
 
 quad =: (,"1 hflip)@(,vflip)
 
-echo quad 16 mash subglyphs
+NB. echo quad 16 mash subglyphs
 
 NB. neat: quad 2 3 mash subglyphs
 
