@@ -34,7 +34,7 @@ Note 'Special cases'
   * vertical
 )
 NB. SISE = "slope-intercept/start-end"
-pair_to_sise =: 3 : 0
+pair_to_sise_fwd =: 3 : 0
   'x1 y1 x2 y2' =. , sort y
 
   if. x1 = x2 do.
@@ -47,7 +47,7 @@ pair_to_sise =: 3 : 0
   end.
 )
 
-sise_to_pair =: 3 : 0
+sise_to_pair_fwd =: 3 : 0
   'b1 m1 s1 e1' =. y
 
   if. m1 = _ do.
@@ -56,6 +56,9 @@ sise_to_pair =: 3 : 0
     (s1 , e1) ,"0 ((b1 , m1) p. s1 , e1)
   end.
 )
+
+pair_to_sise =: pair_to_sise_fwd :. sise_to_pair_fwd
+sise_to_pair =: sise_to_pair_fwd :. pair_to_sise_fwd
 
 isvertical =: 3 : 0
   _ = 1 { y
