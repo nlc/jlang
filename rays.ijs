@@ -93,6 +93,9 @@ sise_intersection =: 4 : 0
   end.
 )
 
+line_reflect =: 2p1 | 2&*@[ - ]
+line_refract_relative =: 2 : '_1 o. (m % n) * 1 o. y'
+
 rays_test0 =: 3 : 0
   line1 =. 1 1
   line2 =. 2 _1r2
