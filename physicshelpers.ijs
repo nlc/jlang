@@ -196,6 +196,52 @@ energy2frequency =: e2f =: frequency2energy^:_1
 ev2j =: *&ElementaryCharge
 j2ev =: ev2j^:_1
 
+NB. Propagation of uncertainty
+Note 'Approximation'
+  The following definitions ignore a third, linear term
+  under the square root, since most intro physics programs
+  don't use it. If necessary it would be easy to alter the
+  functions to use it.
+)
+ucon =: (] , |)@[ * ] NB. <constant> ucon <x, delta(x)>
+umuldiv =: 1 : 0 NB. <x, delta(x)> <umul/udiv> <y, delta(y)>
+  'a da' =. x
+  'b db' =. y
+  ra =. da % a
+  rb =. db % b
+
+  w =. a u b
+
+  dw =: (|w) * +/&.:*: ra , rb
+
+  w , dw
+)
+umul =: * umuldiv
+udiv =: % umuldiv
+uaddsub =: 1 : 0 NB. <x, delta(x)> <uadd/usub> <y, delta(y)>
+  'a da' =. x
+  'b db' =. y
+
+  w =. a u b
+
+  dw =: +/&.:*: da , db
+
+  w , dw
+)
+uadd =: + uaddsub
+usub =: - uaddsub
+upow =: 4 : 0
+  'a da' =. x
+  ra =. da % a
+  p =. y
+
+  w =. a ^ p
+
+  dw =: w * p * ra
+
+  w , dw
+)
+
 NB. experiment with loading unit definitions from the `units` command database
 unitsfilename =: '/usr/share/misc/units.lib'
 units =: a:
