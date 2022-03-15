@@ -32,7 +32,8 @@ sin =: 1&o.
 cos =: 2&o.
 tan =: 3&o.
 
-dot =: +/ . * NB. also works as a matrix multiply
+dot =: +/ . * NB. also works as a matrix multiply--monadic invocation is the "permanent"
+det =: -/ . * NB. matrix determinant
 
 cross =: dyad define
   assert (3 = # x) *. (3 = # y)
@@ -60,6 +61,7 @@ Note 'Example: Rotate a square by the top right corner'
    0.292893  1.70711
           1        1
 )
+NB. "_1r4p1 rundert 1 1" means "rotate by _1r4p1 about the point 1, 1"
 rundert =: 4 : '(tmat y) dot (rmat x) dot (%. tmat y)'
 transform =: 4 : '(x dot"(2 1) ])&.:homogeneous y'
 NB. The equivalent to the above is then: (_1r4p1 rundert 1 1) transform pts
@@ -101,6 +103,7 @@ EarthRadius =: 6.3781e6 NB. m
 EarthMass =: 5.9722e24 NB. kg
 StandardGravity =: 9.80665 NB. m*s_2
 SolarConstant =: 1360.8 NB. W*m_2
+VisibleUniverseRadius =: 4.4e26 NB. m
 
 NB. Temperature conversions
 K2C =: -&273.15
