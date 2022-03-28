@@ -50,15 +50,15 @@ homogeneousfwd =: ,&1"1
 homogeneousinv =: _1&}."1
 homogeneous =: homogeneousfwd :. homogeneousinv
 Note 'Example: Rotate a square by the top right corner'
-     ]pts =: 4 2 $ 0 0 1 0 0 1 1 1
+     ]pts =: #: i. 4
   0 0
   1 0
   0 1
   1 1
      (((tmat 1 1) dot (rmat _1r4p1) dot (%. tmat 1 1)) dot"(2 1) ])&.:homogeneous pts
   _0.414214        1
-   0.292893 0.292893
    0.292893  1.70711
+   0.292893 0.292893
           1        1
 )
 NB. "_1r4p1 rundert 1 1" means "rotate by _1r4p1 about the point 1, 1"
@@ -199,12 +199,17 @@ energy2frequency =: e2f =: frequency2energy^:_1
 ev2j =: *&ElementaryCharge
 j2ev =: ev2j^:_1
 
+NB. RLC Circuits
+NB. <capacitance> cimpedance <frequency>
+cimpedance =: 1 % 2p1 * *
+limpedance =: 2p1 * *
+
 NB. Propagation of uncertainty
 Note 'Approximation'
   The following definitions ignore a third, linear term
   under the square root, since most intro physics programs
   don't use it. If necessary it would be easy to alter the
-  functions to use it.
+  functions to include it.
 )
 ucon =: (] , |)@[ * ] NB. <constant> ucon <x, delta(x)>
 umuldiv =: 1 : 0 NB. <x, delta(x)> <umul/udiv> <y, delta(y)>
@@ -260,7 +265,7 @@ commutator =: 2 : '(u v y) - (v u y)' NB. QM commutation operator
 
 I =: =/~@i. NB. Identity matrix of dimension y
 
-NB. Create a "squred-distance" measure based on a metric signature
+NB. Create a "squared-distance" measure based on a metric signature
 metric =: 1 : '+/ m +/ . * *: y - x'
 euclidean2mt =: I 2 NB. 2D Euclidean metric tensor
 euclidean3mt =: I 3
