@@ -119,6 +119,7 @@ NB.
 
 NB. Percent difference from accepted value x
 pctdiff =: |@-%[
+pctdiff2 =: 2*|@-%+ NB. some teachers do "difference over average"
 
 NB. Electric field from point charges
 NB. <Q x y [z]>{1,} VERB <x y [z]>
