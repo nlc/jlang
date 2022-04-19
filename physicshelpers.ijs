@@ -264,9 +264,9 @@ units =: a:
 
 commutator =: 2 : '(u v y) - (v u y)' NB. QM commutation operator
 
-I =: =/~@i. NB. Identity matrix of dimension y
-
+NB. Relativity
 NB. Create a "squared-distance" measure based on a metric signature
+I =: =/~@i. NB. Identity matrix of dimension y
 metric =: 1 : '+/ m +/ . * *: y - x'
 euclidean2mt =: I 2 NB. 2D Euclidean metric tensor
 euclidean3mt =: I 3
@@ -276,7 +276,6 @@ euclidean2 =: euclidean2mt metric
 euclidean3 =: euclidean3mt metric
 minkowski =: minkowskimt metric
 minkowski2 =: minkowski2mt metric
-
 NB. tempdata =: 0 0 minkowski2"1/~ ,"0/~ 10 %~ i: 100
 NB. NB. Cute diagram
 NB. require 'viewmat'
@@ -284,6 +283,18 @@ NB. viewmat tempdata
 NB. NB. Surface plot
 NB. require 'plot'
 NB. 'wire' plot tempdata
+
+NB. from relativity.ijs
+beta =: %&SpeedOfLight NB. m * s^_1
+gammafrac =: [: % -.&.*:
+gamma =: gammafrac@beta_ms NB. m * s^_1
+
+NB. relativistic velocity addition
+NB. I see A moving at v. A sees B moving at u'. What is u, the velocity of B with respect to me?
+NB. u = (v + u')/(1 + (vu')/c^2)
+rva =: + % 1 + SpeedOfLightSquared %~ *
+NB. require 'plot'
+NB. 'surface' plot rva"0/~ ((SpeedOfLight % 100) * i. 101)
 
 Note 'Planck''s Law (Blackbody Distribution)'
   B(lambda, T) = ((2*h*c^2)/(lambda^5))*(1/(exp(hc/lambda*kB*T)-1))
