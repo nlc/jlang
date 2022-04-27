@@ -77,26 +77,30 @@ NB.   (+/ x * y) % (+/ x)
 NB. )
 cog =: avg : (+/@:* % +/@:[) NB. p sure this works but keeping explicit ver. around jic
 
-NB. Universal constants
-AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
-BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23 NB. J*K^_1
-CoulombConstant =:CoulombsConstant =: 8.987551e9 NB. N*(m^2)*C^2
-ElementaryCharge =: ElectronCharge =: 1.602176634e_19 NB. C
-FineStructureConstant =: Alpha =: CoulombsConstant * (ElementaryCharge ^ 2) % ReducedPlancksConstant * SpeedOfLight
-GasConstant =: AvogadrosNumber * BoltzmannsConstant NB. J*(K*mol)^_1
-GravitationalConstant =: 6.674e_11 NB. (m^3)*(kg^_1)*s^_2
-PermeabilityOfFreeSpace =: VacuumPermeability =: MuNaught =: 1.25663706212e_6 NB. H*m^_1
-PermittivityOfFreeSpace =: VacuumPermittivity =: EpsilonNaught =: 8.8541878176e_12 NB. F*m^_1
-PlanckConstant =: PlancksConstant =: 6.62607015e_34 NB. J*Hz^_1
-ReducedPlanckConstant =: ReducedPlancksConstant =: 1r2p_1 * PlanckConstant NB. J*Hz^_1
-SpeedOfLight =: 299792458 NB. m*s^_1
-SpeedOfLightSquared =: *: SpeedOfLight NB. (m^2)*s^_2
-StefanBoltzmannConstant =: (2r15 * 1p5 * (BoltzmannsConstant ^ 4)) % (SpeedOfLightSquared * PlancksConstant ^ 3) NB. W*(m^_2)*K^_4
-
 NB. Particle rest masses
 ElectronMass =: 9.1093837015e_31 NB. kg (rest mass)
 ProtonMass =: 1.67262192369e_27 NB. kg (rest mass)
 NeutronMass =: 1.67492749804e_27 NB. kg (rest mass)
+
+NB. Universal constants
+NB. 2019 SI defining constants
+AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
+BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23 NB. J*K^_1
+ElementaryCharge =: ElectronCharge =: 1.602176634e_19 NB. C
+PlanckConstant =: PlancksConstant =: 6.62607015e_34 NB. J*Hz^_1
+ReducedPlanckConstant =: ReducedPlancksConstant =: 1r2p_1 * PlanckConstant NB. J*Hz^_1
+SpeedOfLight =: 299792458 NB. m*s^_1
+SpeedOfLightSquared =: *: SpeedOfLight NB. (m^2)*s^_2
+NB. Non-defining constants
+GravitationalConstant =: 6.674e_11 NB. (m^3)*(kg^_1)*s^_2
+PermeabilityOfFreeSpace =: VacuumPermeability =: MuNaught =: 1.25663706212e_6 NB. H*m^_1
+NB. Derived constants
+CoulombConstant =:CoulombsConstant =: 1r4p_1 * PermeabilityOfFreeSpace * SpeedOfLightSquared NB. N*(m^2)*C^2
+FineStructureConstant =: Alpha =: CoulombsConstant * (ElementaryCharge ^ 2) % ReducedPlancksConstant * SpeedOfLight NB. 1
+GasConstant =: AvogadrosNumber * BoltzmannsConstant NB. J*(K*mol)^_1
+PermittivityOfFreeSpace =: VacuumPermittivity =: EpsilonNaught =: 1 % PermeabilityOfFreeSpace * SpeedOfLightSquared NB. F*m^_1
+RydbergConstant =: RydbergsConstant =: (ElectronMass * (ElectronCharge ^ 4)) % (8 * (PermittivityOfFreeSpace ^ 2) * (PlanckConstant ^ 3) * SpeedOfLight)
+StefanBoltzmannConstant =: (2r15 * 1p5 * (BoltzmannsConstant ^ 4)) % (SpeedOfLightSquared * PlancksConstant ^ 3) NB. W*(m^_2)*K^_4
 
 NB. Some useful empirical values
 EarthRadius =: 6.3781e6 NB. m
@@ -250,6 +254,19 @@ upow =: 4 : 0
 
   w , dw
 )
+
+NB. Hydrogen lines
+NB. energy of solitary electron with n=y about nucleus with Z=x
+hydrogenic =: [: - (PlanckConstant * SpeedOfLight * RydbergConstant) * %&*:
+hydrogenictransition =: 1 : '(-&(m&hydrogenic))'
+hydrogenspectralseries =: 1 : '- e2lambda m (1 hydrogenictransition) 1 + m + y'
+lyman =: 1 hydrogenspectralseries
+balmer =: 2 hydrogenspectralseries
+pascen =: 3 hydrogenspectralseries
+brackett =: 4 hydrogenspectralseries
+pfund =: 5 hydrogenspectralseries
+humphreys =: 6 hydrogenspectralseries
+NB. balmer i. 4 ==> 6.56112e_7 4.86009e_7 4.33937e_7 4.1007e_7
 
 NB. experiment with loading unit definitions from the `units` command database
 unitsfilename =: '/usr/share/misc/units.lib'
