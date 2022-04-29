@@ -1,0 +1,36 @@
+NB. From Ringworld RPG via http://www.alcyone.com/max/reference/scifi/ringworld.html
+
+Distance from Sol                                           1.90 Em = 201 ly
+Distance above mean galactic plane                          2.35 Em = 248 ly
+Sun's spectral type                                         G3 Ve
+Sun's population                                            I (galactic disk)
+Sun's effective surface temperature                         5600 K
+Sun's mass                                                  1.93 x 10^30 kg = 0.970 solar
+Sun's radius                                                680 Mm = 0.977 solar
+Sun's luminosity                                            3.6 x 10^26 W = 0.94 solar
+Sun's absolute magnitude                                    +5.0
+Shadow square number                                        20
+Shadow square shape                                         rectangular
+Shadow square width                                         ~4.1 Gm
+Shadow square height                                        ~1.6 Gm
+Shadow square area (each)                                   6.6 x 10^18 m^2
+Shadow square area (total)                                  1.3 x 10^20 m^2
+Shadow square spacing (average)                             10 Gm
+Shadow square ring radius                                   43.9 Gm = 0.293 au
+Shadow square ring angular speed                            5.11 x 10^-6 rad/s
+Shadow square ring rotation period                          1.23 Ms = 14.2 d
+Ringworld mass                                              2.1 x 10^27 kg = 350 Earths
+Ringworld radius                                            153 Gm = 1.02 au
+Ringworld width                                             1.60 Gm
+Rim wall height                                             ~1600 km
+Ringworld centripetal acceleration ("gravity")              9.73 m/s^2 = 0.992 gee
+Ringworld angular speed                                     7.98 x 10^-6 rad/s
+Ringworld rotation period                                   787 ks = 9.11 d
+Ringworld tangential speed                                  1.22 Mm/s
+Ringworld moment of inertia                                 4.9 x 10^49 kg m^2
+Ringworld angular momentum                                  3.9 x 10^44 kg m^2/s
+Ringworld rotational kinetic energy                         1.6 x 10^39 J
+Ringworld atmospheric composition                           N[2] 74%, O[2] 23%, Ar 2%, He 1%, trace elements < 1%
+Scrith foundation thickness (average)                       30 m
+Scrith foamed meteor shielding thickness (average)          370 m
+Tension stress induced in scrith foundation due to rotation ~7 x 10^16 Pa

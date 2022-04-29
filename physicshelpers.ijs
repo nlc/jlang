@@ -2,7 +2,11 @@ NB. Unless otherwise noted, everything is assumed to be MKS
 
 NB. 2D vector math stuff
 d2r =: deg =: %&180p_1
+NB. experimental: "180 deg ==> 3.14159"
+deg =: 1 : 'd2r m'
 r2d =: rad =: *&180p_1
+NB. experimental: "1 rad ==> 57.2958"
+rad =: 1 : 'r2d m'
 xy2r =: +/&.:*:
 atan2 =: 12 o. j./
 xy2a =: atan2
@@ -98,13 +102,16 @@ NB. Derived constants
 CoulombConstant =:CoulombsConstant =: 1r4p_1 * PermeabilityOfFreeSpace * SpeedOfLightSquared NB. N*(m^2)*C^2
 FineStructureConstant =: Alpha =: CoulombsConstant * (ElementaryCharge ^ 2) % ReducedPlancksConstant * SpeedOfLight NB. 1
 GasConstant =: AvogadrosNumber * BoltzmannsConstant NB. J*(K*mol)^_1
-PermittivityOfFreeSpace =: VacuumPermittivity =: EpsilonNaught =: 1 % PermeabilityOfFreeSpace * SpeedOfLightSquared NB. F*m^_1
-RydbergConstant =: RydbergsConstant =: (ElectronMass * (ElectronCharge ^ 4)) % (8 * (PermittivityOfFreeSpace ^ 2) * (PlanckConstant ^ 3) * SpeedOfLight)
+PermittivityOfFreeSpace =: VacuumPermittivity =: EpsilonNaught =: % PermeabilityOfFreeSpace * SpeedOfLightSquared NB. F*m^_1
+RydbergConstant =: RydbergsConstant =: (ElectronMass * (ElectronCharge ^ 4)) % (8 * (PermittivityOfFreeSpace ^ 2) * (PlanckConstant ^ 3) * SpeedOfLight) NB. FIXME: rewrite in terms of mu_0
 StefanBoltzmannConstant =: (2r15 * 1p5 * (BoltzmannsConstant ^ 4)) % (SpeedOfLightSquared * PlancksConstant ^ 3) NB. W*(m^_2)*K^_4
 
 NB. Some useful empirical values
 EarthRadius =: 6.3781e6 NB. m
 EarthMass =: 5.9722e24 NB. kg
+SunRadius =: 6.967e8 NB. m
+SunMass =: SolarMass =: 1.98847e30 NB. kg
+AstronomicalUnit =: 1.495978707e11 NB. m
 StandardGravity =: 9.80665 NB. m*s_2
 SolarConstant =: 1360.8 NB. W*m_2
 VisibleUniverseRadius =: 4.4e26 NB. m
