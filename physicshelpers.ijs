@@ -81,11 +81,6 @@ NB.   (+/ x * y) % (+/ x)
 NB. )
 cog =: avg : (+/@:* % +/@:[) NB. p sure this works but keeping explicit ver. around jic
 
-NB. Particle rest masses
-ElectronMass =: 9.1093837015e_31 NB. kg (rest mass)
-ProtonMass =: 1.67262192369e_27 NB. kg (rest mass)
-NeutronMass =: 1.67492749804e_27 NB. kg (rest mass)
-
 NB. Universal constants
 NB. 2019 SI defining constants
 AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
@@ -98,6 +93,10 @@ SpeedOfLightSquared =: *: SpeedOfLight NB. (m^2)*s^_2
 NB. Non-defining constants
 GravitationalConstant =: 6.674e_11 NB. (m^3)*(kg^_1)*s^_2
 PermeabilityOfFreeSpace =: VacuumPermeability =: MuNaught =: 1.25663706212e_6 NB. H*m^_1
+NB. Particle rest masses
+ElectronMass =: 9.1093837015e_31 NB. kg (rest mass)
+NeutronMass =: 1.67492749804e_27 NB. kg (rest mass)
+ProtonMass =: 1.67262192369e_27 NB. kg (rest mass)
 NB. Derived constants
 CoulombConstant =:CoulombsConstant =: 1r4p_1 * PermeabilityOfFreeSpace * SpeedOfLightSquared NB. N*(m^2)*C^2
 FineStructureConstant =: Alpha =: CoulombsConstant * (ElementaryCharge ^ 2) % ReducedPlancksConstant * SpeedOfLight NB. 1
