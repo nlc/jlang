@@ -103,18 +103,21 @@ CoulombConstant =:CoulombsConstant =: 1r4p_1 * PermeabilityOfFreeSpace * SpeedOf
 FineStructureConstant =: Alpha =: CoulombsConstant * (ElementaryCharge ^ 2) % ReducedPlancksConstant * SpeedOfLight NB. 1
 GasConstant =: AvogadrosNumber * BoltzmannsConstant NB. J*(K*mol)^_1
 PermittivityOfFreeSpace =: VacuumPermittivity =: EpsilonNaught =: % PermeabilityOfFreeSpace * SpeedOfLightSquared NB. F*m^_1
-RydbergConstant =: RydbergsConstant =: (ElectronMass * (ElectronCharge ^ 4)) % (8 * (PermittivityOfFreeSpace ^ 2) * (PlanckConstant ^ 3) * SpeedOfLight) NB. FIXME: rewrite in terms of mu_0
+RydbergConstant =: RydbergsConstant =: (ElectronMass * (ElementaryCharge ^ 4) * (PermeabilityOfFreeSpace ^ 2) * (SpeedOfLight ^ 3)) % 8 * PlancksConstant ^ 3 NB. m^_1
 StefanBoltzmannConstant =: (2r15 * 1p5 * (BoltzmannsConstant ^ 4)) % (SpeedOfLightSquared * PlancksConstant ^ 3) NB. W*(m^_2)*K^_4
 
 NB. Some useful empirical values
+StandardGravity =: 9.80665 NB. m*s_2
 EarthRadius =: 6.3781e6 NB. m
 EarthMass =: 5.9722e24 NB. kg
+MoonRadius =: 1.7374e7 NB. m -- Volumetric mean radius
+MoonMass =: 7.346e22 NB. kg
 SunRadius =: 6.967e8 NB. m
 SunMass =: SolarMass =: 1.98847e30 NB. kg
 AstronomicalUnit =: 1.495978707e11 NB. m
-StandardGravity =: 9.80665 NB. m*s_2
-SolarConstant =: 1360.8 NB. W*m_2
+LunarDistance =: 384748000 NB. m -- Semi-major axis of lunar orbit; true value varies from 3.633e8 to 4.055e8
 VisibleUniverseRadius =: 4.4e26 NB. m
+SolarConstant =: 1360.8 NB. W*m_2
 
 NB. Temperature conversions
 K2C =: -&273.15
