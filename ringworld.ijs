@@ -25,6 +25,7 @@ earths =: A % AE
 'The inner surface of the ring has an area of %e sq. mi.' printf m2mi^:2 A
 'About %d Earth surfaces would fit onto the inside of one Ringworld' printf earths
 
+
 Nu =: 0.3 NB. Poisson's Ratio--Who knows?--Using steel for now
 Rh =: 7.9e3 NB. Density--Can be calculated from book description--Using steel for now
 T =: 50 NB. Obtainable from book? -- Effectively negligible
@@ -38,5 +39,28 @@ SiTh =: ((3 + Nu) % 8) * Rh * (Om ^ 2) * (A2 + B2 + ((A2 * B2) % R2) - ((1 + 3 *
 
 'Radial stress = %e' printf SiR
 'Angular stress = %e' printf SiTh
+
+
+a =: 680e6  NB. sun radius
+r =: 43.9e9 NB. shadow square ring radius
+b =: 153e9  NB. ringworld radius
+
+asq =: *: a
+bsq =: *: b
+rsq =: *: r
+
+cpr =: (%: bsq - asq) - (%: rsq - asq)
+phi =: 2 * _2 o. (bsq + rsq - *: cpr) % (2 * b * r)
+s =: b * phi NB. length of arc in twilight
+
+omega =: 5.11e_6
+rwomega =: 7.98e_6
+omegamin =: rwomega - omega
+omegamax =: rwomega + omega
+omegas =: rwomega (- , ] , +) omega
+
+ts =: phi % omegas
+
+'Twilight lasts either %.2f, %.2f, or %.2f minutes.' printf ts % 60
 
 exit 1
