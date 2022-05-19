@@ -6,10 +6,15 @@ G =: 9.81
 RE =: 6.3781e6 NB. m
 AE =: 4p1 * *: RE
 
-R =: 1.4966899e11
+NB. R =: 1.4966899e11
+NB. V =: %: R * G
+NB. NB. H =: 1.3934e9 NB. width of the "ribbon"--same as solar diameter
+NB. H =: m2mi^:(_1) 1e6 NB. width of the "ribbon"--1 million miles
+
+NB. From Ringworld RPG via http://www.alcyone.com/max/reference/scifi/ringworld.html
+R =: 153e9 NB. radius
 V =: %: R * G
-NB. H =: 1.3934e9 NB. width of the "ribbon"--same as solar diameter
-H =: m2mi^:(_1) 1e6 NB. width of the "ribbon"--1 million miles
+H =: 1.6e9 NB. width of the "ribbon"
 
 Om =: V % R
 Th =: Om&*
@@ -18,7 +23,9 @@ falan =: sec2day Th^:(_1) 2p1
 
 'Ringworld rotates at %f miles per second' printf m2mi V
 '%f Earth days in one Ringworld rotation (falan)' printf falan
-NB. A falan is only 25 minutes shy of exactly 9 Earth days
+NB. If you use 1AU and 1 million miles, a falan is only 25 minutes shy of exactly 9 Earth days
+NB. Tragically, when the RPG numbers are used, it's not quite as clean--
+NB.   just shy of two hours more than 9 Earth days
 
 A =: H * 2p1 * R
 earths =: A % AE
