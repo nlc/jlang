@@ -19,13 +19,14 @@ H =: 1.6e9 NB. width of the "ribbon"
 Om =: V % R
 Th =: Om&*
 
-falan =: sec2day Th^:(_1) 2p1
+falan =: 10 * sec2day Th^:(_1) 2p1 NB. Ten full revolutions
 
 'Ringworld rotates at %f miles per second' printf m2mi V
-'%f Earth days in one Ringworld rotation (falan)' printf falan
-NB. If you use 1AU and 1 million miles, a falan is only 25 minutes shy of exactly 9 Earth days
+'%f Earth days in 1 falan (10 Ringworld rotations)' printf falan
+NB. If you use 1AU and 1 million miles, a revolution is only 25 minutes
+NB.   shy of exactly 9 Earth days.
 NB. Tragically, when the RPG numbers are used, it's not quite as clean--
-NB.   just shy of two hours more than 9 Earth days
+NB.   just short of two hours more than 9 Earth days
 
 A =: H * 2p1 * R
 earths =: A % AE
