@@ -109,7 +109,7 @@ NB. Some useful empirical values
 StandardGravity =: 9.80665 NB. m*s_2
 EarthRadius =: 6.3781e6 NB. m
 EarthMass =: 5.9722e24 NB. kg
-MoonRadius =: 1.7374e7 NB. m -- Volumetric mean radius
+MoonRadius =: 1.7374e6 NB. m -- Volumetric mean radius
 MoonMass =: 7.346e22 NB. kg
 SunRadius =: 6.967e8 NB. m
 SunMass =: SolarMass =: 1.98847e30 NB. kg
