@@ -53,3 +53,7 @@ wordle =: monad define
 NB. seed RNG
 (9!:1) seed =: ". (6!:0) 'mmsssss'
 'seed=%d' printf seed
+
+NB. generateblanks 'alu__' ==> 'alu__' , 'al_u_' , 'al__u' ...
+generateblanks =: [: ~. i.@!@# A. ]
+shuffle =: { ~ (# ? #)
