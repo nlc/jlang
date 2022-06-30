@@ -1,19 +1,19 @@
-NB. Unless otherwise noted, everything is assumed to be MKS
+NB. Unless otherwise noted, everything is assumed to be MKS and radians
 
 NB. 2D vector math stuff
 d2r =: deg =: %&180p_1
 NB. experimental: "180 deg ==> 3.14159"
 deg =: 1 : 'd2r m'
-r2d =: rad =: *&180p_1
-NB. experimental: "1 rad ==> 57.2958"
-rad =: 1 : 'r2d m'
+r2d =: *&180p_1
+NB. experimental: "1 rad ==> 1"
+rad =: 1 : 'm'
 xy2r =: +/&.:*:
 atan2 =: 12 o. j./
 xy2a =: atan2
 xy2ra =: xy2r , xy2a
 ra2xy =: {. * 2 1 o. {:
 
-atr =: ,
+atr =: at =: ,
 atd =: atr d2r
 
 c2p =: (xy2ra"1) :. (ra2xy"1)
