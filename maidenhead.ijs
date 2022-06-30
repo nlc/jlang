@@ -1,3 +1,5 @@
+require 'format/printf'
+
 Note 'Maidenhead coordinates'
   Convert maidenhead square notation to longitude & latitude
   (currently of SW corner of square)
@@ -16,8 +18,20 @@ normal =: */ ranges
 NB. mhvalues =: [: ((offsets {.~ #) -~ ]) a. i. ((2 , ~ -:@#) $ ])
 mhvalues =: offsets -~ a. i. ((2 , ~ -:@#) $ ])
 mhfractions =: normal %~ ranges #. |:@mhvalues@]
-mhlonglat =: 360 180 * 1 | 0.5 + mhfractions@] NB. E N
+mhlonglatne =: 360 180 * 1 | 0.5 + mhfractions@] NB. E N
+mhlatlongne =: |.@mhlonglatne
+netonw =: ({. , 180 - 180 | {:)
+mhlatlongpretty =: todms@netonw@mhlatlongne
 
 NB. echo mhvalues 'BL11bh16'
 NB. echo mhfractions 'BL11bh16'
 NB. echo mhlonglat 'BL11bh16'
+
+
+NB. 42.3601 ==> 42° 21' 36.36"
+convbasefwd =: _&,@[ #: ] * */@[
+convbaseinv =: */@[%~ _&,@[ #. ]
+convbase =: convbasefwd :. convbaseinv
+todms =: 60 60&convbase
+todec =: 60 60&convbase^:(_1)
+
