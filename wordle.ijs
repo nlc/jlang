@@ -1,4 +1,5 @@
 require 'format/printf'
+require './seed.ijs'
 
 prompt=: 3 : '1!:1]1 [ ((2) 1!:2~ ])y'
 
@@ -16,11 +17,12 @@ highlight =: [: > [: ,&.>/ [: ,&.> (none`yellow`green@.[ ])&.>
 display =: fit highlight ]
 
 
-words =: > cutLF fread 'wordle_list.txt'
+possiblewords =: > cutLF fread '_wordle_possible_words.txt'
+allwords =: > cutLF fread '_wordle_all_words.txt'
 alphabet =: (97 + i. 26) { a.
 
 wordle =: monad define
-  word =. (?@# { ]) words
+  word =. (?@# { ]) possiblewords
   tries =. 6
   found =. 0
 
@@ -50,9 +52,8 @@ wordle =: monad define
   word
 )
 
-NB. seed RNG
-(9!:1) seed =: ". (6!:0) 'mmsssss'
-'seed=%d' printf seed
+seed ''
+'seed=%d' printf RNGSEED
 
 NB. generateblanks 'alu__' ==> 'alu__' , 'al_u_' , 'al__u' ...
 generateblanks =: [: ~. i.@!@# A. ]
