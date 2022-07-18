@@ -42,13 +42,17 @@ wolf =: 1 : '((8#2)|.@#:m){~+/1 2 4*(i:1)|."0 1 y'
 wolf30 =: 30 wolf
 NB. TODO: Add iteration based on an x argument
 
-NB. FIXME: A more elegant "kernel":  #. |: (i: 1) |."(0 1) y
+NB. A more elegant "kernel":  [: #.&.|: (i: 1) |."0 1 ]
+wolftacit =: ([: #.&.|: (i: 1) |."0 1 ]) { [: |. (8#2)&#:@[
 
+NB. provide neighborhood as left noun arg
+NB. (_1 0 1 wolfnbr) ==> normal wolfram
+wolfnbr =: 1 : '([: #.&.|: m |."0 1 ]) { [: |. ((2 ^ # m)#2)&#:@['
 
 NB. Odd-sided square matrix of powers of 2
 NB. Potentially useful for non-totalistic CA's
 (2#1+2*])$2^[:i.[:*:1+2*]
-NB. ope num one plus two times right close shape two pow cap ints cap
+NB. ope two num one plus two times right close shape two pow cap ints cap
 NB.   square one plus two times right
 
 NB. Generates every permutation of given array
