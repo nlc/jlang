@@ -15,7 +15,7 @@ NB. From Ringworld RPG via http://www.alcyone.com/max/reference/scifi/ringworld.
 R =: 153e9 NB. radius
 V =: %: R * G
 H =: 1.6e9 NB. width of the "ribbon"
-T =: 50 NB. Effectively negligible
+T =: 30 NB. Effectively negligible
 M =: 2.1e27 NB. mass
 
 Om =: V % R
@@ -57,7 +57,15 @@ R2 =: *: R
 NB. Angular tensile stress for rotating ring
 SiTh =: ((3 + Nu) % 8) * Rh * (Om ^ 2) * (A2 + B2 + ((A2 * B2) % R2) - ((1 + 3 * Nu) % (3 + Nu)) * R2)
 
+NB. Wonderfully, this gives the same answer as in the datasheet
 'Angular stress =%.2e Pa' printf SiTh
+
+strengthA36 =: 400e6
+strengthCarbonFiber =: 5650e6
+strengthNanodiamond =: 93e9
+'  ~%.1e x the ultimate yield strength of A36 steel' printf SiTh % strengthA36
+'  ~%.1e x the ultimate yield strength of carbon fiber' printf SiTh % strengthCarbonFiber
+'  ~%.1e x the ultimate yield strength of nanoaggregate diamond' printf SiTh % strengthNanodiamond
 
 
 a =: 680e6  NB. sun radius

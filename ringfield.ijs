@@ -21,4 +21,9 @@ Simpson=: 1 : 0
 )
 
 require 'plot'
-plot dF&(0.01 * 1 + i. 99)"0 Simpson 0 2p1 1000
+NB. plot dF&(0.01 * 1 + i. 99)"0 Simpson 0 2p1 1000
+result =: dF&(is =: 1e_9 + 0.01 * i: 99)"0 Simpson 0 2p1 1000
+deriv =: (}.-}:) result
+plot is ; result ,: -deriv
+
+exit 1
