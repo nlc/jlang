@@ -8,7 +8,7 @@ r2d =: *&180p_1
 NB. experimental: "1 rad ==> 1"
 rad =: 1 : 'm'
 xy2r =: +/&.:*:
-atan2 =: 12 o. j./
+atan2 =: (12 o. [: j./ ])"1
 xy2a =: atan2
 xy2ra =: xy2r , xy2a
 ra2xy =: {. * 2 1 o. {:
@@ -329,3 +329,10 @@ Note 'Planck''s Law (Blackbody Distribution)'
   T planckslaw lambda
 )
 planckslaw =: ((2 * PlancksConstant * SpeedOfLightSquared) % 5 ^~ ]) * [: % 1 -~ [: ^ (PlancksConstant * SpeedOfLight) % ] * BoltzmannsConstant * [
+
+NB. experiment with loading IUPAC element weight data from a file.
+NB. weights are in the fourth column.
+ElementData =: > 4&{. each (9 { a.)&cut each cutLF fread 'element_data.tsv'
+elementbyid =: ElementData&(4 : ', x #~ > ((#$]) y)&-: each (1 {"1 x)')
+atomicmassamu =: [: ". 3 pick elementbyid
+atomicmasskg =: 1.6605391e_27 * atomicmassamu
