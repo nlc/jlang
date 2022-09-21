@@ -18,4 +18,4 @@ NB. viewmat pr (it"0) plane
 NB. 
 NB. exit 1
 
-3 : '(2>|@]) ((+y^~]) mkiter (2>|@]))"0 plane'
+NB. 3 : '(2>|@]) ((+y^~]) mkiter (2>|@]))"0 plane'
