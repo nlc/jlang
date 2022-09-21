@@ -336,3 +336,12 @@ ElementData =: > 4&{. each (9 { a.)&cut each cutLF fread 'element_data.tsv'
 elementbyid =: ElementData&(4 : ', x #~ > ((#$]) y)&-: each (1 {"1 x)')
 atomicmassamu =: [: ". 3 pick elementbyid
 atomicmasskg =: 1.6605391e_27 * atomicmassamu
+
+quadraticformula =: 3 : 0
+  if. (1 $ 3) -: $ y do.
+    'a b c' =. y
+    ((- b) (+ , -) %: (*: b) - 4 * a * c) % 2 * a
+  else.
+    _.
+  end.
+)
