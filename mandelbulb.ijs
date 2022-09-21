@@ -48,7 +48,7 @@ Note 'usage'
 )
 
 mandelslice =: 3 : 0
-  pr (mandelbulb8 ^: pr ^: 10)"1 ,&y"(1) 1r120 * ,"0/~ i: 127
+  pr (mandelbulb8 ^: pr ^: 10)"1 ,&y"(1) 115 %~ ,"0/~ i: 150
 )
 
 writemandelslice =: 3 : 0
@@ -59,6 +59,6 @@ writemandelslice =: 3 : 0
   fname fwrite~ 'P1' , dims , ": result
 )
 
-NB. writemandelslice"(0) 120 %~ i. 128
+NB. writemandelslice"(0) 115 %~ i. 151
 NB. convert mandelbulb_*.pbm mandelbulb_final.gif
 NB. convert mandelbulb_final.gif -coalesce -duplicate 1,-2-1 -quiet -layers OptimizePlus mandelbulb_pingpong.gif
