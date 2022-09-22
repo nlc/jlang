@@ -51,14 +51,17 @@ mandelslice =: 3 : 0
   pr (mandelbulb8 ^: pr ^: 10)"1 ,&y"(1) 115 %~ ,"0/~ i: 150
 )
 
-writemandelslice =: 3 : 0
+writemandelslice =: 4 : 0
+  imgidx =. x
   zcoord =. y
-  fname =. '.pbm' ,~ 'mandelbulb_' , ('\.' ; '_') rxrplc '%0.3f' sprintf y
+  fname =. '.pbm' ,~ 'mandelbulb_' , ('\.' ; '_') rxrplc '%03d' sprintf x
   result =. mandelslice zcoord
   dims =. ": $ result
   fname fwrite~ 'P1' , dims , ": result
 )
 
-NB. writemandelslice"(0) 115 %~ i. 151
+NB. (i. # zcoords) writemandelslice"(0) zcoords =: 115 %~ i: 151
 NB. convert mandelbulb_*.pbm mandelbulb_final.gif
+
+NB. for pingpong
 NB. convert mandelbulb_final.gif -coalesce -duplicate 1,-2-1 -quiet -layers OptimizePlus mandelbulb_pingpong.gif
