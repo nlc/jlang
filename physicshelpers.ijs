@@ -313,7 +313,7 @@ NB. 'wire' plot tempdata
 NB. from relativity.ijs
 beta =: %&SpeedOfLight NB. m * s^_1
 gammafrac =: [: % -.&.*:
-gamma =: gammafrac@beta_ms NB. m * s^_1
+gamma =: gammafrac@beta NB. m * s^_1
 
 NB. relativistic velocity addition
 NB. I see A moving at v. A sees B moving at u'. What is u, the velocity of B with respect to me?
