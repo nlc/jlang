@@ -36,6 +36,9 @@ sin =: 1&o.
 cos =: 2&o.
 tan =: 3&o.
 
+re =: {.@+.
+im =: {:@+.
+
 dot =: +/ . * NB. also works as a matrix multiply--monadic invocation is the "permanent"
 det =: -/ . * NB. matrix determinant
 
@@ -217,6 +220,10 @@ NB. RLC Circuits
 NB. <capacitance> cimpedance <frequency>
 cimpedance =: 1 % 2p1 * *
 limpedance =: 2p1 * *
+
+NB. multipole magnet (as in an accelerator) formula
+NB. https://cds.cern.ch/record/1333874/files/1.pdf
+multipole =: 2 : '(im , re) m * (x + 0j1 * y) ^ n - 1'
 
 NB. Propagation of uncertainty
 Note 'Approximation'
