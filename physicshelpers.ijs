@@ -35,6 +35,9 @@ pmag =: {. NB. always assuming radius is the first
 sin =: 1&o.
 cos =: 2&o.
 tan =: 3&o.
+asin =: _1&o.
+acos =: _2&o.
+atan =: _3&o.
 
 re =: {.@+.
 im =: {:@+.
