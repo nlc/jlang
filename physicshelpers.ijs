@@ -126,11 +126,11 @@ SolarConstant =: 1360.8 NB. W*m_2
 
 NB. Temperature conversions
 K2C =: -&273.15
-C2K =: KtoC^:_1
+C2K =: K2C^:_1
 C2F =: 32 9r5&p.
-F2C =: CtoF^:_1
-K2F =: CtoF@KtoC
-F2K =: KtoF^:_1
+F2C =: C2F^:_1
+K2F =: C2F@K2C
+F2K =: K2F^:_1
 
 NB.
 NB. More useful tools for freshman-level physics
