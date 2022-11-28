@@ -57,4 +57,5 @@ thicklensRTM =: 1 : 0
   a mult b mult c
 )
 
-lens mult"(2 1) 5 propagationRTM mult"(2 1) rays
+NB. rays =: 1 ,"(0) 0.01 * i: 10
+NB. lens mult"(2 1) 5 propagationRTM mult"(2 1) rays
