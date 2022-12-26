@@ -42,7 +42,10 @@ interception =: 1 : 0
   c =. (+/ *: rx , ry)
 
   NB. Time to contact
-  t =. quadraticformula a , b , c
+  NB. t =. (>&0#]) quadraticformula a , b , c
 
-  (rx, ry) +"1 (vx , vy) *"1 0 t
+  NB. ((rx, ry) +"1 (vx , vy) *"1 0 t) ,"1 0 t
+
+
+  t =. quadraticformula a , b , c
 )
