@@ -10,6 +10,7 @@ Note 'Block Truncation Coding'
 
 require 'standard_deviation.ijs'
 
+clamp =: 0 >. ]
 round =: [:<.0.5+]
 
 btcfwd =: 3 : 0
@@ -19,8 +20,8 @@ btcfwd =: 3 : 0
    km =. # ns
    bs =. ns > mn
    kq =. +/ bs
-   ka =. round mn - sd * %: kq % km - kq
-   kb =. round mn + sd * %: (km - kq) % kq
+   ka =. clamp round mn - sd * %: kq % km - kq
+   kb =. clamp round mn + sd * %: (km - kq) % kq
    (ka , kb) ; bs
 )
 
@@ -31,19 +32,21 @@ btcinv =: 3 : 0
 
 btc =: btcfwd :. btcinv
 
-folder =: 'C:\Users\nchaveri\Downloads\'
+folder =: './'
 
 p2 =: [: > [: ".&.> 4 }. [: cutLF fread NB. Adjust behead number to fit
-img =: p2 folder , 'mona_lisa.ascii.pgm' NB. File goes here
+img =: p2 folder , 'mona_lisa_crop.ascii.pgm' NB. File goes here
 
 NB. >btc1a each , (4 4 ,: 4 4) <;._3 img
 
-require 'viewmat'
-viewmat img
-viewmat > , each/"1 ,/"1 each/"1 (2 2 $ 4) <@(]&.:btc);._3 img
-
-out4 =: > , each/"1 ,/"1 each/"1 (2 2 $ 4) <@(]&.:btc);._3 img
-out8 =: > , each/"1 ,/"1 each/"1 (2 2 $ 8) <@(]&.:btc);._3 img
+NB. require 'viewmat'
+NB. viewmat img
+NB. viewmat > , each/"1 ,/"1 each/"1 (2 2 $ 4) <@(]&.:btc);._3 img
+NB. 
+NB. out4 =: > , each/"1 ,/"1 each/"1 (2 2 $ 4) <@(]&.:btc);._3 img
+NB. out8 =: > , each/"1 ,/"1 each/"1 (2 2 $ 8) <@(]&.:btc);._3 img
+NB. out16 =: > , each/"1 ,/"1 each/"1 (2 2 $ 16) <@(]&.:btc);._3 img
+NB. out32 =: > , each/"1 ,/"1 each/"1 (2 2 $ 32) <@(]&.:btc);._3 img
 
 hackywrite =: 4 : 0
   fname =. y
@@ -51,6 +54,13 @@ hackywrite =: 4 : 0
   fname fwrite~ 'P2' , LF , (": |. $ contents) , LF , '255' , LF , ([,LF,])/ ": contents
 )
 
-img hackywrite folder , 'temp.ascii.pgm'
-out4 hackywrite folder , 'temp4.ascii.pgm'
-out8 hackywrite folder , 'temp8.ascii.pgm'
+require 'format/printf'
+
+3 : 0 ''
+  out =. > , each/"1 ,/"1 each/"1 (2 2 $ 4) <@(]);._3 img
+  out hackywrite folder , 'temp.ascii.pgm'
+  for_ijk. (2 ^ 2 + i. 5) do.
+    out =. > , each/"1 ,/"1 each/"1 (2 2 $ ijk) <@(]&.:btc);._3 img
+    out hackywrite folder , 'temp%02d.ascii.pgm' sprintf ijk
+  end.
+)
