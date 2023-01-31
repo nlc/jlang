@@ -4,3 +4,4 @@ Tutorial/
 *.swp
 .DS_Store
 *.out
+*:Zone.Identifier
