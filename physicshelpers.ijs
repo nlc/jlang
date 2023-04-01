@@ -27,10 +27,10 @@ padd =: cadd&.:p2c
 psub =: csub&.:p2c
 psum =: csum&.:p2c NB. should be equiv. to padd/ but more efficient
 
-pnorm =: (1) 0} ] NB. Simply replace the radius with 1
-cnorm =: pnorm&.:c2p
 cmag =: xy2r
 pmag =: {. NB. always assuming radius is the first
+cnorm =: % cmag
+pnorm =: (1) 0} ] NB. Simply replace the radius with 1
 
 sin =: 1&o.
 cos =: 2&o.
