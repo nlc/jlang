@@ -27,10 +27,10 @@ padd =: cadd&.:p2c
 psub =: csub&.:p2c
 psum =: csum&.:p2c NB. should be equiv. to padd/ but more efficient
 
-pnorm =: (1) 0} ] NB. Simply replace the radius with 1
-cnorm =: pnorm&.:c2p
 cmag =: xy2r
 pmag =: {. NB. always assuming radius is the first
+cnorm =: % cmag
+pnorm =: (1) 0} ] NB. Simply replace the radius with 1
 
 sin =: 1&o.
 cos =: 2&o.
@@ -342,10 +342,16 @@ planckslaw =: ((2 * PlancksConstant * SpeedOfLightSquared) % 5 ^~ ]) * [: % 1 -~
 
 NB. experiment with loading IUPAC element weight data from a file.
 NB. weights are in the fourth column.
-ElementData =: > 4&{. each (9 { a.)&cut each cutLF fread 'element_data.tsv'
-elementbyid =: ElementData&(4 : ', x #~ > ((#$]) y)&-: each (1 {"1 x)')
-atomicmassamu =: [: ". 3 pick elementbyid
-atomicmasskg =: 1.6605391e_27 * atomicmassamu
+ElementDataFilename =: 'element_data.tsv'
+3 : 0 ''
+  if. fexist ElementDataFilename do.
+    ElementData =: > 4&{. each (9 { a.)&cut each cutLF fread ElementDataFilename
+    elementbyid =: ElementData&(4 : ', x #~ > ((#$]) y)&-: each (1 {"1 x)')
+    atomicmassamu =: [: ". 3 pick elementbyid
+    atomicmasskg =: 1.6605391e_27 * atomicmassamu
+    a:
+  end.
+)
 
 quadraticformula =: 3 : 0
   if. (1 $ 3) -: $ y do.
