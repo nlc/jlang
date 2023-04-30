@@ -1,5 +1,5 @@
 NB. logistic map definition: x(n+1) =: r * x(n) * (1 - x(n))
-lm =: **[:-.]
+lm =: **1-]
 
 NB. NB. Uncomment these lines to make a semi-nice plot of the logistic map
 NB. require 'viewmat'
