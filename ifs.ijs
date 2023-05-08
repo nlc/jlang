@@ -10,13 +10,18 @@ barnsley =: barnsleya homogenize"2 1 barnsleyt
 
 NB. Dot together a random sequence of
 NB. members of a list of transforms.
-NB. Seems to be bugged.
 randtransform =: 4 : 'dot/ x {~ ? y # # x'
 
 NB. NOTE: Don't need a vector, just
 NB. grab the rightmost elements of
 NB. the final matrix.
+locate =: (0 2 ; 1 2)&{
 
-NB. Generate a list of lists of
+NB. TODO: Generate a list of lists of
 NB. random indices and feed them all
 NB. through together.
+
+NB. TODO: Generate indices based on a
+NB. probability distribution.
+
+
