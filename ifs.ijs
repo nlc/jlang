@@ -31,7 +31,6 @@ NB. through together.
 
 NB. TODO: Generate indices based on a
 NB. probability distribution.
-
 NB. Generate an array consisting of a
 NB. number of copies each index in i. N
 NB. corresponding to the probability
