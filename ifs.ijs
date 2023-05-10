@@ -14,7 +14,26 @@ barnsleya =: 4 2 2 $ 0 0 0 0.16 0.85 0.04 _0.04 0.85 0.20 _0.26 0.23 0.22 _0.15 
 barnsleyt =: 4 2 $ 0 0 0 1.6 0 1.6 0 0.44
 barnsleyp =: 1 85 7 7
 
-barnsley =: barnsleya homogenize"2 1 barnsleyt
+NB. Completed transform matrices
+barnsleym =: barnsleya homogenize"2 1 barnsleyt
+
+NB. TODO: Generate indices based on a
+NB. probability distribution.
+NB. Generate an array consisting of a
+NB. number of copies each index in i. N
+NB. corresponding to the probability
+NB. of that index.
+expandprobs =: ] # [: i. #
+NB. expandprobs barnsleyp
+
+NB. x-shaped set of independent samples
+NB. from y (with replacement)
+samples =: 4 : '(? x $ # y) { y'
+
+NB. TODO: Generate a list of lists of
+NB. random indices and feed them all
+NB. through together.
+
 
 NB. Dot together a random sequence of
 NB. members of a list of transforms.
@@ -25,15 +44,6 @@ NB. grab the rightmost elements of
 NB. the final matrix.
 locate =: (0 2 ; 1 2)&{
 
-NB. TODO: Generate a list of lists of
-NB. random indices and feed them all
-NB. through together.
-
-NB. TODO: Generate indices based on a
-NB. probability distribution.
-NB. Generate an array consisting of a
-NB. number of copies each index in i. N
-NB. corresponding to the probability
-NB. of that index.
-expandprobs =: ] # [: i. #
-NB. expandprobs barnsleyp
+Note 'Proof of concept'
+  locate"_1 dot/"_1 barnsleym {~ 10 100 samples expandprobs barnsleyp
+)
