@@ -4,6 +4,11 @@ require './seed.ijs'
 prompt=: 3 : '1!:1]1 [ ((2) 1!:2~ ])y'
 
 NB. 'BROTH' (= + e.~) 'SWORN'  ==>  0 0 2 1 0
+NB. Note that this doesn't quite match how wordle works.
+NB. If a letter that appears once in the secret word is used twice
+NB. in a guess and one of the uses is in the correct place, the other
+NB. usage will not show up as yellow. This leads to a probably
+NB. not-insignificant number of broken edge cases.
 fit =: = + e.~
 
 without =: -.@e. # [
@@ -55,6 +60,40 @@ wordle =: monad define
 seed ''
 'seed=%d' printf RNGSEED
 
+
 NB. generateblanks 'alu__' ==> 'alu__' , 'al_u_' , 'al__u' ...
 generateblanks =: [: ~. i.@!@# A. ]
 shuffle =: { ~ (# ? #)
+
+
+Note 'Reverse searching'
+  Supposing an unknown target word, and given your guess and the "fit" pattern (i.e. 2 0 0 1 0),
+  you can find all the possible words that match in that way, using:
+
+    possiblewords #~ (myfit -: 1 pick ])"1 possiblewords ([;fit)"1 myguess
+)
+revmatch =: 1 : (':'; 'm #~ (x -: 1 pick ])"1 m ([;fit)"1 y')
+revmatchpossible =: possiblewords revmatch
+
+revmatchinteractive =: 3 : 0
+  pw =. possiblewords
+  cont =. 1
+
+  while. cont do.
+    guess =. prompt 'GUESS?'
+    result =. ". prompt 'RESULT?'
+
+    pw =. result pw revmatch guess
+    if. cont =. 1 < # pw do.
+      '%d REMAINING:' printf # pw
+      echo pw
+      echo ''
+    elseif. 1 = # pw do.
+      'THE WORD IS "%s"' printf < {. pw
+    else.
+      echo 'NO SOLUTION FOUND'
+    end.
+  end.
+
+  {. pw
+)
