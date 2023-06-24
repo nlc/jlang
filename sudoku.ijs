@@ -9,6 +9,8 @@ box =: ]#"1]#i.@(2#]
 
 NB. row and column numbers
 rc =: [: <@,"0/~ i.
+NB. alternate form that takes a 2-vector
+rc =: [: {: [: <@,"0/~"1 i."0
 
 NB. Row/Column/Box number
 rcb =: (box %:),~each rc
