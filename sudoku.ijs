@@ -5,7 +5,7 @@ NB. Boxes of possible values
 
 without =: -.@e. # [
 
-box =: ]#"1]#i.@(2#]
+box =: ]#"1]#i.@(2#])
 
 NB. row and column numbers
 rc =: [: <@,"0/~ i.
