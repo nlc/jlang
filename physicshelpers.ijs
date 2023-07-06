@@ -361,3 +361,4 @@ quadraticformula =: 3 : 0
     _.
   end.
 )
+NB. quadraticformula =: 1 pick [: p. |.
