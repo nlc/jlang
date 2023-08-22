@@ -36,3 +36,6 @@ NB. if the product of all nonzero elements is divisible by 935, then that
 NB. pattern is present.
 awc =: pnz"2 (p) *"2/ (8 3 3 ($,) wins) NB. All Win Conditions
 echo OR/"(1) 0 = awc | state
+
+NB. all states expressed as products of primes to the power 0, 1 or 2 for ' XO'
+*/"1 (p: i. 9)^"(1) 3#.^:_1 i. 3^9
