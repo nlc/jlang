@@ -12,6 +12,10 @@ NB. displays board and eliminates overlap
 NB. displays board
 '-XO'{~omx++:omo
 
+NB. New way to display board
+boardpattern =: (45 $ '%c|%c|%c' , LF , '-----' , LF)
+NB. disp. with printf
+
 NB. overlap =: OR/^:_ omx AND omo
 overlap =: [: OR/@, AND NB. Maybe? I think so.
 
