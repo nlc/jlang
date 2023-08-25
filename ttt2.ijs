@@ -15,8 +15,10 @@ encode =: encodefwd :. decodefwd
 decode =: decodefwd :. encodefwd
 
 equivalents =: [: (,"3 |."2) [: (,"3 |:"2) (,: |.)
-canenc =: [: <./ [: encode equivalents NB. "canonical" encoding is the lowest number of 8 possible encodings
-candec =: [: ~. [: equivalents decode NB. Show all possible decodes of a "canonical" encoding
+canenc =: ([: <./ [: encode equivalents)"2 NB. "canonical" encoding is the lowest number of 8 possible encodings
+candec =: ([: ~. [: equivalents decode)"0 NB. Show all possible decodes of a "canonical" encoding
+canonicalizecode =: canenc@decode
+canonicalizeboard =: decode@canenc
 
 game =: 3 3 $ 'O X OXXOX'
 
@@ -43,6 +45,7 @@ analyze =: 3 : 0
 
 unwrapping =: , :. (3 3 $ ])
 
+NB. TODO: Does "move" need to re-check that everything's kosher? Lot of repeated work
 move =: 4 : 0
   squareidx =. x
   board =. y
@@ -56,11 +59,6 @@ move =: 4 : 0
 )
 
 deal1 =: {~1?#
-Note 'random play'
-  g2 =: 3 3 $ '  X XOO  '
-  (deal1 6 pick analyze g2) move g2
-)
-
 playrand =: 3 : 0
   board =. y
   if. -. 3 3 -: $ board do.
