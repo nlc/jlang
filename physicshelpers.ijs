@@ -364,27 +364,32 @@ quadraticformula =: 3 : 0
 NB. quadraticformula =: 1 pick [: p. |.
 
 Note 'The Famous Five (and their rearrangements)'
+  dt dx v0 v vavg a
+
   dx = v0 * dt + (a * dt^2) / 2
+    '(v0 * dt) + 1r2 * a * dt^2'
+    'dx'
+    'dt' ; 'v0' ; 'a'
   v0 = (a * dt) / 2 - dx / dt
   dt = QF(a / 2, v0, -dx)
   a = 2 * (dx - v0 * dt) / (dt^2)
-  
+
   v = v0 + a * dt
   v0 = v - a * dt
   a = (v - v0) / dt
   dt = (v - v0) / a
-  
+
   vavg = dx / dt
   dx = vavg * dt
   dt = dx / vavg
-  
+
   vavg = (v0 + v) / 2
   v0 = 2 * vavg - v
   v = 2 * vavg - v0
-  
+
   NB. v^2 = v0^2 + 2 * a * dx
   v = (+/-)Sqrt(v0^2 + 2 * a * dx)
   v0 = (+/-)Sqrt(v^2 - 2 * a * dx)
   a = (v^2 - v0^2) / (2 * dx)
-  dx = (v^2 - v0^2) / (2 * da)
+  dx = (v^2 - v0^2) / (2 * a)
 )
