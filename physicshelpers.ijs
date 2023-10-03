@@ -332,6 +332,8 @@ rva =: + % 1 + SpeedOfLightSquared %~ *
 NB. require 'plot'
 NB. 'surface' plot rva"0/~ ((SpeedOfLight % 100) * i. 101)
 
+schwarzschildradius =: (2 * GravitationalConstant % SpeedOfLightSquared)&*
+
 Note 'Planck''s Law (Blackbody Distribution)'
   B(lambda, T) = ((2*h*c^2)/(lambda^5))*(1/(exp(hc/lambda*kB*T)-1))
   m -> W*sr^_1*m^_3
