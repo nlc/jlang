@@ -49,6 +49,9 @@ NB. provide neighborhood as left noun arg
 NB. (_1 0 1 wolfnbr) ==> normal wolfram
 wolfnbr =: 1 : '([: #.&.|: m |."0 1 ]) { [: |. ((2 ^ # m)#2)&#:@['
 
+NB. A more golfy version that takes the rule as the left arg
+golfram =: *@AND 2^[:#.@:|:(i:1)|."0 1]
+
 NB. Odd-sided square matrix of powers of 2
 NB. Potentially useful for non-totalistic CA's
 (2#1+2*])$2^[:i.[:*:1+2*]
