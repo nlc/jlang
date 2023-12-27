@@ -79,3 +79,7 @@ NB. (< 2 2) ="0 {;~ i. 12
 NB. Possible knight's moves from the top left square
 NB. this can almost certainly be done with "e."
 current_possible_moves =: +/ (<"1 knights_moves +"(1) 2 2) ="0 2 {;~ i. 12
+
+algebraicfwd =: (97 49 -~ a.i.])@(2&{.)
+algebraicinv =: a. {~ 97 49&+
+algebraic =: algebraicfwd :. algebraicinv
