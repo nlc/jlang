@@ -44,13 +44,16 @@ pporbital =: 3 : 0
     velocitykms =. 1000 %~ velocity
     omegarads =. omega
     areakm2 =. 1000000 %~ area
-    'ORBITAL: %.2e km radius | %.2e km/s tangential (%.2e rad/s) | %.2e km2 area' sprintf radiuskm ; velocitykms ; omegarads ; areakm2
+    'ORBITAL: %.2e km radius | %.2e km/s tangential (%.2e rad/s) | %.4e km2 area' sprintf radiuskm ; velocitykms ; omegarads ; areakm2
   else.
     'Malformed input!'
   end.
 )
 
-echo pporbital 9.81 86400
-echo pporbital 9.81 86400 1000000
+g =: 9.80665
+day =: 86164.0905
+echo g , day
+echo pporbital g , day
+echo pporbital g , day , 3000000
 
 NB. exit 1
