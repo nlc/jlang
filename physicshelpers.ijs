@@ -119,8 +119,16 @@ MoonRadius =: 1.7374e6 NB. m -- Volumetric mean radius
 MoonMass =: 7.346e22 NB. kg
 SunRadius =: 6.967e8 NB. m
 SunMass =: SolarMass =: 1.98847e30 NB. kg
-AstronomicalUnit =: SolarDistance =: SunEarthDistance =: 1.495978707e11 NB. m
-LunarDistance =: EarthMoonDistance =: 384748000 NB. m -- Semi-major axis of lunar orbit; true value varies from 3.633e8 to 4.055e8
+AstronomicalUnit =: SolarDistance =: SunEarthDistance =: EarthOrbit =: 1.495978707e11 NB. m
+LunarDistance =: EarthMoonDistance =: MoonOrbit =: LunarOrbit =: 384748000 NB. m -- Semi-major axis of lunar orbit; true value varies from 3.633e8 to 4.055e8
+MercuryOrbit =: 5.79e10 NB. m
+VenusOrbit =: 1.082e11 NB. m
+MarsOrbit =: 2.28e11 NB. m
+JupterOrbit =: 7.785e11 NB. m
+SaturnOrbit =: 1.432e12 NB. m
+UranusOrbit =: 2.867e12 NB. m
+NeptuneOrbit =: 4.515e12 NB. m
+PlutoOrbit =: 5.9064e12 NB. m
 VisibleUniverseRadius =: 4.4e26 NB. m
 SolarConstant =: 1360.8 NB. W*m_2
 Atmosphere =: 101325 NB. Pa
