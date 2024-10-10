@@ -1,0 +1,95 @@
+Rank	Visual magnitude simple	Visual magnitude	Proper name	Bayer designation	Distance (ly)	Spectral type simple	Spectral type	Celestial Hemisphere
+0	-26.74	-26.74	Sun 		0	G2	G2 V	–
+1	-1.46	-1.46	Sirius 	α CMa	8.6	A0	A0mA1 Va, DA2	Southern
+2	-0.74	-0.74	Canopus 	α Car	310	A9	A9 II	Southern
+3	-0.27	-0.27 (0.01 + 1.33)	Rigil Kentaurus & Toliman 	α Cen	4.34	G2	G2 V, K1 V	Southern
+4	-0.05	-0.05	Arcturus 	α Boo	37	K0	K0 III	Northern
+5	0.03	0.03 (−0.02–0.07 var )	Vega 	α Lyr	25	A0	A0 Va	Northern
+6	0.08	0.08 (0.03–0.16 var )	Capella 	α Aur	43	K0	K0 III, G1 III	Northern
+7	0.13	0.13 (0.05–0.18 var )	Rigel 	β Ori	860	B8	B8 Ia	Southern
+8	0.34	0.34	Procyon 	α CMi	11	F5	F5 IV-V	Northern
+9	0.46	0.46 (0.40–0.46 var )	Achernar 	α Eri	140	B3	B3 Vpe	Southern
+10	0.5	0.50 (0.0–1.6 var )	Betelgeuse 	α Ori	640	M1	M1-M2 Ia-ab	Northern
+11	0.61	0.61	Hadar 	β Cen	390	B1	B1 III	Southern
+12	0.76	0.76	Altair 	α Aql	17	A7	A7 V	Northern
+13	0.76	0.76 (1.33 + 1.73)	Acrux 	α Cru	320	B0	B0.5 IV, B1 V	Southern
+14	0.86	0.86 (0.75–0.95 var )	Aldebaran 	α Tau	65	K5	K5 III	Northern
+15	0.96	0.96 (0.6–1.6 var )	Antares 	α Sco	550	M1	M1.5 Iab-Ib, B2.5 V	Southern
+16	0.97	0.97 (0.97–1.04 var )	Spica 	α Vir	250	B1	B1 III-IV, B2 V	Southern
+17	1.14	1.14	Pollux 	β Gem	34	K0	K0 III	Northern
+18	1.16	1.16	Fomalhaut 	α PsA	25	A3	A3 V	Southern
+19	1.25	1.25 (1.21–1.29 var )	Deneb 	α Cyg	2600	A2	A2 Ia	Northern
+20	1.25	1.25 (1.23–1.31 var )	Mimosa 	β Cru	280	B0	B0.5 III, B2 V	Southern
+21	1.39	1.39	Regulus 	α Leo	79	B8	B8 IVn	Northern
+22	1.5	1.5	Adhara 	ε CMa	430	B2	B2 II	Southern
+23	1.58	1.58 (1.93 + 2.97)	Castor 	α Gem	51	A1	A1 V, Am	Northern
+24	1.62	1.62	Shaula 	λ Sco	570	B2	B2 IV	Southern
+25	1.64	1.64	Gacrux 	γ Cru	89	M3	M3.5 III	Southern
+26	1.64	1.64	Bellatrix 	γ Ori	250	B2	B2 III	Northern
+27	1.65	1.65	Elnath 	β Tau/γ Aur	130	B7	B7 III	Northern
+28	1.69	1.69	Miaplacidus 	β Car	110	A1	A1 III	Southern
+29	1.69	1.69 (1.64–1.74 var )	Alnilam 	ε Ori	1180	B0	B0 Ia	Southern
+31	1.74	1.74	Alnair 	α Gru	100	B6	B6 V	Southern
+32	1.77	1.77	Alnitak 	ζ Ori	1300	O9	O9.5 Iab, B1 IV, B0 III	Southern
+33	1.77	1.77	Alioth 	ε UMa	83	A1	A1 III-IVp kB9	Northern
+34	1.79	1.79	Dubhe 	α UMa	120	K0	K0 III, F0 V	Northern
+35	1.82	1.82	Mirfak 	α Per	510	F5	F5 Ib	Northern
+36	1.82	1.82	Wezen 	δ CMa	1800	F8	F8 Ia	Southern
+30	1.83	1.83 (1.81–1.87 var + 4.27)	–	γ Vel 	840	O7	WC8, O7.5III	Southern
+37	1.84	1.84	Sargas 	θ Sco	330	F0	F0 II	Southern
+38	1.85	1.85	Kaus Australis 	ε Sgr	140	B9	B9.5 III	Southern
+39	1.86	1.86	Avior 	ε Car	600	K3	K3 III, B2 Vp	Southern
+40	1.86	1.86	Alkaid 	η UMa	100	B3	B3 V	Northern
+41	1.9	1.90 (1.89–1.94 var )	Menkalinan 	β Aur	80	A1	A1mIV+A1mIV	Northern
+42	1.91	1.91	Atria 	α TrA	390	K2	K2 IIb-IIIa	Southern
+43	1.92	1.92	Alhena 	γ Gem	100	A1	A1.5 IV+	Northern
+44	1.94	1.94	Peacock 	α Pav	180	B3	B3 V	Southern
+45	1.96	1.96 (1.99–2.39 var + 5.57)	Alsephina 	δ Vel	80	A1	A1 Va(n), F7.5 V	Southern
+46	1.98	1.98	Mirzam 	β CMa	500	B1	B1 II-III	Southern
+47	1.98	1.98 (1.86–2.13 var )	Polaris 	α UMi	430	F7	F7 Ib	Northern
+48	2	2	Alphard 	α Hya	180	K3	K3 II-III	Southern
+49	2	2	Hamal 	α Ari	66	K1	K1 IIIb	Northern
+50	2.02	2.02	Diphda 	β Cet	96	K0	K0 III	Southern
+51	2.04	2.04	Mizar 	ζ UMa	83	A2	A2 Vp, A2 Vp, Am	Northern
+52	2.05	2.05	Nunki 	σ Sgr	230	B2	B2.5 V	Southern
+53	2.06	2.06	Menkent 	θ Cen	59	K0	K0 III	Southern
+54	2.06	2.06	Alpheratz 	α And/δ Peg	97	B8	B8 IVpMnHg, A3 V	Northern
+55	2.07	2.07 (2.01–2.10 var )	Mirach 	β And	200	M0	M0 III	Northern
+56	2.07	2.07	Rasalhague 	α Oph	47	A5	A5IVnn	Northern
+57	2.08	2.08 (2.37 + 3.64)	Algieba 	γ Leo	130	K0	K0 III, G7 IIIb	Northern
+58	2.08	2.08	Kochab 	β UMi	130	K4	K4 III	Northern
+59	2.09	2.09	Saiph 	κ Ori	720	B0	B0.5 Ia	Southern
+60	2.11	2.11	Denebola 	β Leo	36	A3	A3 Va	Northern
+61	2.12	2.12 (2.1–3.39 var )	Algol 	β Per	93	B8	B8 V, K0 IV, A7m	Northern
+62	2.15	2.15 (2.0–2.3 var )	Tiaki 	β Gru	170	M5	M5 III	Southern
+63	2.17	2.17	Muhlifain 	γ Cen	130	A0	A0 III, A0 III	Southern
+64	2.21	2.21	Aspidiske 	ι Car	690	A9	A9 Ib	Southern
+65	2.21	2.21 (2.14–2.30 var )	Suhail 	λ Vel 	570	K4	K4 Ib	Southern
+66	2.23	2.23 (2.21–2.32 var )	Alphecca 	α CrB	75	A0	A0 V, G5 V	Northern
+67	2.23	2.23 (2.23–2.35 var )	Mintaka 	δ Ori	900	O9	O9.5 II, B1 V, B0 IV	Southern
+68	2.23	2.23	Sadr 	γ Cyg	1500	F8	F8 Iab	Northern
+69	2.23	2.23	Eltanin 	γ Dra	150	K5	K5 III	Northern
+70	2.24	2.24	Schedar 	α Cas	230	K0	K0 IIIa	Northern
+71	2.25	2.25	Naos 	ζ Pup	1080	O4	O4 If(n)p	Southern
+72	2.26	2.26	Almach 	γ And	350	K3	K3 IIb, B9.5 V, B9.5 V, A0 V	Northern
+73	2.28	2.28 (2.25–2.31 var )	Caph 	β Cas	54	F2	F2 III	Northern
+74	2.29	2.29	Izar 	ε Boo	202	K0	K0 II-III, A2 V	Northern
+75	2.3	2.30 (2.29–2.34 var )	–	α Lup 	550	B1	B1.5 III	Southern
+76	2.3	2.30 (2.29–2.31 var )	–	ε Cen 	380	B1	B1III	Southern
+77	2.31	2.31 (1.6–2.32 var )	Dschubba 	δ Sco	400	B0	B0.3 IV, B1-3 V	Southern
+78	2.31	2.31	Larawag 	ε Sco	65	K1	K1 III	Southern
+79	2.35	2.35 (2.30–2.41 var )	–	η Cen 	310	B1	B1.5 Vne	Southern
+80	2.37	2.37	Merak 	β UMa	79	A1	A1 IVps	Northern
+81	2.38	2.38	Ankaa 	α Phe	77	K0	K0.5 IIIb	Southern
+82	2.39	2.39	Girtab 	κ Sco 	460	B1	B1.5 III	Southern
+83	2.4	2.40 (0.7–3.0 var )	Enif 	ε Peg	670	K2	K2 Ib	Northern
+84	2.42	2.42 (2.31–2.74 var )	Scheat 	β Peg	200	M2	M2.5 II-IIIe	Northern
+85	2.43	2.43	Sabik 	η Oph	88	A1	A1 IV, A1 IV	Southern
+86	2.44	2.44	Phecda 	γ UMa	84	A0	A0 Ve	Northern
+87	2.45	2.45	Aludra 	η CMa	2000	B5	B5 Ia	Southern
+88	2.46	2.46	Alderamin 	α Cep	49	A8	A8Vn	Northern
+89	2.46	2.46	Markeb 	κ Vel	540	B2	B2 IV	Southern
+90	2.47	2.47 (1.6–3.0 var )	–	γ Cas 	610	B0	B0.5 IVe	Northern
+91	2.48	2.48	Markab 	α Peg	140	A0	A0 IV	Northern
+92	2.48	2.48	Aljanah 	ε Cyg	72	K0	K0 III-IV	Northern
+93	2.5	2.5	Acrab 	β Sco	404	B0	B0.5 IV-V, B1.5 V, B2 V	Southern

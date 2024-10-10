@@ -364,6 +364,7 @@ ElementDataFilename =: 'element_data.tsv'
   end.
 )
 
+NB. given in A, B, C (not how the p. method wants it!)
 quadraticformula =: 3 : 0
   if. (1 $ 3) -: $ y do.
     'a b c' =. y
