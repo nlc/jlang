@@ -1,0 +1,95 @@
+Rank	Visual magnitude simple	Visual magnitude	Proper name	Bayer designation simple	Bayer designation	Constellation	Distance (ly)	Spectral type simple	Spectral type	Spectral class	Spectral subclass	Luminosity class	Celestial Hemisphere
+0	-26.74	-26.74	Sun 	N/A	N/A	N/A	0	G2	G2 V	G	2	V	N/A
+1	-1.46	-1.46	Sirius 	Alpha CMa	α CMa	CMa	8.6	A0	A0mA1 Va, DA2	A	0	V	Southern
+2	-0.74	-0.74	Canopus 	Alpha Car	α Car	Car	310	A9	A9 II	A	9	II	Southern
+3	-0.27	-0.27 (0.01 + 1.33)	Rigil Kentaurus & Toliman 	Alpha Cen	α Cen	Cen	4.34	G2	G2 V, K1 V	G	2	V	Southern
+4	-0.05	-0.05	Arcturus 	Alpha Boo	α Boo	Boo	37	K0	K0 III	K	0	III	Northern
+5	0.03	0.03 (−0.02-0.07 var )	Vega 	Alpha Lyr	α Lyr	Lyr	25	A0	A0 Va	A	0	V	Northern
+6	0.08	0.08 (0.03-0.16 var )	Capella 	Alpha Aur	α Aur	Aur	43	K0	K0 III, G1 III	K	0	III	Northern
+7	0.13	0.13 (0.05-0.18 var )	Rigel 	Beta Ori	β Ori	Ori	860	B8	B8 Ia	B	8	Ia	Southern
+8	0.34	0.34	Procyon 	Alpha CMi	α CMi	CMi	11	F5	F5 IV-V	F	5	IV	Northern
+9	0.46	0.46 (0.40-0.46 var )	Achernar 	Alpha Eri	α Eri	Eri	140	B3	B3 Vpe	B	3	V	Southern
+10	0.5	0.50 (0.0-1.6 var )	Betelgeuse 	Alpha Ori	α Ori	Ori	640	M1	M1-M2 Ia-ab	M	1	Ia	Northern
+11	0.61	0.61	Hadar 	Beta Cen	β Cen	Cen	390	B1	B1 III	B	1	III	Southern
+12	0.76	0.76	Altair 	Alpha Aql	α Aql	Aql	17	A7	A7 V	A	7	V	Northern
+13	0.76	0.76 (1.33 + 1.73)	Acrux 	Alpha Cru	α Cru	Cru	320	B0	B0.5 IV, B1 V	B	0.5	V	Southern
+14	0.86	0.86 (0.75-0.95 var )	Aldebaran 	Alpha Tau	α Tau	Tau	65	K5	K5 III	K	5	III	Northern
+15	0.96	0.96 (0.6-1.6 var )	Antares 	Alpha Sco	α Sco	Sco	550	M1	M1.5 Iab-Ib, B2.5 V	M	1.5	Ia	Southern
+16	0.97	0.97 (0.97-1.04 var )	Spica 	Alpha Vir	α Vir	Vir	250	B1	B1 III-IV, B2 V	B	1	III	Southern
+17	1.14	1.14	Pollux 	Beta Gem	β Gem	Gem	34	K0	K0 III	K	0	III	Northern
+18	1.16	1.16	Fomalhaut 	Alpha PsA	α PsA	PsA	25	A3	A3 V	A	3	V	Southern
+19	1.25	1.25 (1.21-1.29 var )	Deneb 	Alpha Cyg	α Cyg	Cyg	2600	A2	A2 Ia	A	2	Ia	Northern
+20	1.25	1.25 (1.23-1.31 var )	Mimosa 	Beta Cru	β Cru	Cru	280	B0	B0.5 III, B2 V	B	0.5	III	Southern
+21	1.39	1.39	Regulus 	Alpha Leo	α Leo	Leo	79	B8	B8 IVn	B	8	IV	Northern
+22	1.5	1.5	Adhara 	Epsilon CMa	ε CMa	CMa	430	B2	B2 II	B	2	II	Southern
+23	1.58	1.58 (1.93 + 2.97)	Castor 	Alpha Gem	α Gem	Gem	51	A1	A1 V, Am	A	1	V	Northern
+24	1.62	1.62	Shaula 	Lambda Sco	λ Sco	Sco	570	B2	B2 IV	B	2	IV	Southern
+25	1.64	1.64	Gacrux 	Gamma Cru	γ Cru	Cru	89	M3	M3.5 III	M	3.5	III	Southern
+26	1.64	1.64	Bellatrix 	Gamma Ori	γ Ori	Ori	250	B2	B2 III	B	2	III	Northern
+27	1.65	1.65	Elnath 	Beta Tau/Gamma Aur	β Tau/γ Aur	Aur	130	B7	B7 III	B	7	III	Northern
+28	1.69	1.69	Miaplacidus 	Beta Car	β Car	Car	110	A1	A1 III	A	1	III	Southern
+29	1.69	1.69 (1.64-1.74 var )	Alnilam 	Epsilon Ori	ε Ori	Ori	1180	B0	B0 Ia	B	0	Ia	Southern
+31	1.74	1.74	Alnair 	Alpha Gru	α Gru	Gru	100	B6	B6 V	B	6	V	Southern
+32	1.77	1.77	Alnitak 	Zeta Ori	ζ Ori	Ori	1300	O9	O9.5 Iab, B1 IV, B0 III	O	9.5	Ia	Southern
+33	1.77	1.77	Alioth 	Epsilon UMa	ε UMa	UMa	83	A1	A1 III-IVp kB9	A	1	III	Northern
+34	1.79	1.79	Dubhe 	Alpha UMa	α UMa	UMa	120	K0	K0 III, F0 V	K	0	III	Northern
+35	1.82	1.82	Mirfak 	Alpha Per	α Per	Per	510	F5	F5 Ib	F	5	Ia	Northern
+36	1.82	1.82	Wezen 	Delta CMa	δ CMa	CMa	1800	F8	F8 Ia	F	8	Ia	Southern
+30	1.83	1.83 (1.81-1.87 var + 4.27)	N/A	Gamma Vel 	γ Vel 	Vel	840	O7	WC8, O7.5III	O	7.5	III	Southern
+37	1.84	1.84	Sargas 	Theta Sco	θ Sco	Sco	330	F0	F0 II	F	0	II	Southern
+38	1.85	1.85	Kaus Australis 	Epsilon Sgr	ε Sgr	Sgr	140	B9	B9.5 III	B	9.5	III	Southern
+39	1.86	1.86	Avior 	Epsilon Car	ε Car	Car	600	K3	K3 III, B2 Vp	K	3	III	Southern
+40	1.86	1.86	Alkaid 	Eta UMa	η UMa	UMa	100	B3	B3 V	B	3	V	Northern
+41	1.9	1.90 (1.89-1.94 var )	Menkalinan 	Beta Aur	β Aur	Aur	80	A1	A1mIV+A1mIV	A	1	IV	Northern
+42	1.91	1.91	Atria 	Alpha TrA	α TrA	TrA	390	K2	K2 IIb-IIIa	K	2	II	Southern
+43	1.92	1.92	Alhena 	Gamma Gem	γ Gem	Gem	100	A1	A1.5 IV+	A	1.5	IV	Northern
+44	1.94	1.94	Peacock 	Alpha Pav	α Pav	Pav	180	B3	B3 V	B	3	V	Southern
+45	1.96	1.96 (1.99-2.39 var + 5.57)	Alsephina 	Delta Vel	δ Vel	Vel	80	A1	A1 Va(n), F7.5 V	A	1	V	Southern
+46	1.98	1.98	Mirzam 	Beta CMa	β CMa	CMa	500	B1	B1 II-III	B	1	II	Southern
+47	1.98	1.98 (1.86-2.13 var )	Polaris 	Alpha UMi	α UMi	UMi	430	F7	F7 Ib	F	7	I	Northern
+48	2	2	Alphard 	Alpha Hya	α Hya	Hya	180	K3	K3 II-III	K	3	II	Southern
+49	2	2	Hamal 	Alpha Ari	α Ari	Ari	66	K1	K1 IIIb	K	1	III	Northern
+50	2.02	2.02	Diphda 	Beta Cet	β Cet	Cet	96	K0	K0 III	K	0	III	Southern
+51	2.04	2.04	Mizar 	Zeta UMa	ζ UMa	UMa	83	A2	A2 Vp, A2 Vp, Am	A	2	V	Northern
+52	2.05	2.05	Nunki 	Sigma Sgr	σ Sgr	Sgr	230	B2	B2.5 V	B	2.5	V	Southern
+53	2.06	2.06	Menkent 	Theta Cen	θ Cen	Cen	59	K0	K0 III	K	0	III	Southern
+54	2.06	2.06	Alpheratz 	Alpha And/Delta Peg	α And/δ Peg	Peg	97	B8	B8 IVpMnHg, A3 V	B	8	IV	Northern
+55	2.07	2.07 (2.01-2.10 var )	Mirach 	Beta And	β And	And	200	M0	M0 III	M	0	III	Northern
+56	2.07	2.07	Rasalhague 	Alpha Oph	α Oph	Oph	47	A5	A5IVnn	A	5	IV	Northern
+57	2.08	2.08 (2.37 + 3.64)	Algieba 	Gamma Leo	γ Leo	Leo	130	K0	K0 III, G7 IIIb	K	0	III	Northern
+58	2.08	2.08	Kochab 	Beta UMi	β UMi	UMi	130	K4	K4 III	K	4	III	Northern
+59	2.09	2.09	Saiph 	Kappa Ori	κ Ori	Ori	720	B0	B0.5 Ia	B	0.5	Ia	Southern
+60	2.11	2.11	Denebola 	Beta Leo	β Leo	Leo	36	A3	A3 Va	A	3	V	Northern
+61	2.12	2.12 (2.1-3.39 var )	Algol 	Beta Per	β Per	Per	93	B8	B8 V, K0 IV, A7m	B	8	V	Northern
+62	2.15	2.15 (2.0-2.3 var )	Tiaki 	Beta Gru	β Gru	Gru	170	M5	M5 III	M	5	III	Southern
+63	2.17	2.17	Muhlifain 	Gamma Cen	γ Cen	Cen	130	A0	A0 III, A0 III	A	0	III	Southern
+64	2.21	2.21	Aspidiske 	Iota Car	ι Car	Car	690	A9	A9 Ib	A	9	I	Southern
+65	2.21	2.21 (2.14-2.30 var )	Suhail 	Lambda Vel 	λ Vel 	Vel	570	K4	K4 Ib	K	4	I	Southern
+66	2.23	2.23 (2.21-2.32 var )	Alphecca 	Alpha CrB	α CrB	CrB	75	A0	A0 V, G5 V	A	0	V	Northern
+67	2.23	2.23 (2.23-2.35 var )	Mintaka 	Delta Ori	δ Ori	Ori	900	O9	O9.5 II, B1 V, B0 IV	O	9.5	II	Southern
+68	2.23	2.23	Sadr 	Gamma Cyg	γ Cyg	Cyg	1500	F8	F8 Iab	F	8	Ia	Northern
+69	2.23	2.23	Eltanin 	Gamma Dra	γ Dra	Dra	150	K5	K5 III	K	5	III	Northern
+70	2.24	2.24	Schedar 	Alpha Cas	α Cas	Cas	230	K0	K0 IIIa	K	0	III	Northern
+71	2.25	2.25	Naos 	Zeta Pup	ζ Pup	Pup	1080	O4	O4 If(n)p	O	4	I	Southern
+72	2.26	2.26	Almach 	Gamma And	γ And	And	350	K3	K3 IIb, B9.5 V, B9.5 V, A0 V	K	3	II	Northern
+73	2.28	2.28 (2.25-2.31 var )	Caph 	Beta Cas	β Cas	Cas	54	F2	F2 III	F	2	III	Northern
+74	2.29	2.29	Izar 	Epsilon Boo	ε Boo	Boo	202	K0	K0 II-III, A2 V	K	0	II	Northern
+75	2.3	2.30 (2.29-2.34 var )	N/A	Alpha Lup 	α Lup 	Lup	550	B1	B1.5 III	B	1.5	III	Southern
+76	2.3	2.30 (2.29-2.31 var )	N/A	Epsilon Cen 	ε Cen 	Cen	380	B1	B1III	B	1	III	Southern
+77	2.31	2.31 (1.6-2.32 var )	Dschubba 	Delta Sco	δ Sco	Sco	400	B0	B0.3 IV, B1-3 V	B	0.3	IV	Southern
+78	2.31	2.31	Larawag 	Epsilon Sco	ε Sco	Sco	65	K1	K1 III	K	1	III	Southern
+79	2.35	2.35 (2.30-2.41 var )	N/A	Eta Cen 	η Cen 	Cen	310	B1	B1.5 Vne	B	1.5	V	Southern
+80	2.37	2.37	Merak 	Beta UMa	β UMa	UMa	79	A1	A1 IVps	A	1	IV	Northern
+81	2.38	2.38	Ankaa 	Alpha Phe	α Phe	Phe	77	K0	K0.5 IIIb	K	0.5	III	Southern
+82	2.39	2.39	Girtab 	Kappa Sco 	κ Sco 	Sco	460	B1	B1.5 III	B	1.5	III	Southern
+83	2.4	2.40 (0.7-3.0 var )	Enif 	Epsilon Peg	ε Peg	Peg	670	K2	K2 Ib	K	2	I	Northern
+84	2.42	2.42 (2.31-2.74 var )	Scheat 	Beta Peg	β Peg	Peg	200	M2	M2.5 II-IIIe	M	2.5	II	Northern
+85	2.43	2.43	Sabik 	Eta Oph	η Oph	Oph	88	A1	A1 IV, A1 IV	A	1	IV	Southern
+86	2.44	2.44	Phecda 	Gamma UMa	γ UMa	UMa	84	A0	A0 Ve	A	0	V	Northern
+87	2.45	2.45	Aludra 	Eta CMa	η CMa	CMa	2000	B5	B5 Ia	B	5	Ia	Southern
+88	2.46	2.46	Alderamin 	Alpha Cep	α Cep	Cep	49	A8	A8Vn	A	8	V	Northern
+89	2.46	2.46	Markeb 	Kappa Vel	κ Vel	Vel	540	B2	B2 IV	B	2	IV	Southern
+90	2.47	2.47 (1.6-3.0 var )	N/A	Gamma Cas 	γ Cas 	Cas	610	B0	B0.5 IVe	B	0.5	IV	Northern
+91	2.48	2.48	Markab 	Alpha Peg	α Peg	Peg	140	A0	A0 IV	A	0	IV	Northern
+92	2.48	2.48	Aljanah 	Epsilon Cyg	ε Cyg	Cyg	72	K0	K0 III-IV	K	0	III	Northern
+93	2.5	2.5	Acrab 	Beta Sco	β Sco	Sco	404	B0	B0.5 IV-V, B1.5 V, B2 V	B	0.5	IV	Southern
