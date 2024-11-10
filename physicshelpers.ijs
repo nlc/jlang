@@ -52,6 +52,9 @@ cross =: dyad define
   ((a2 * b3) - a3 * b2) , ((a3 * b1) - a1 * b3) , ((a1 * b2) - a2 * b1)
 )
 
+NB. angle between two vectors via dot product
+angle =: [: acos dot % *&cmag
+
 NB. rotation/translation matrices
 rmat=: 1 (< 2 2) } 3 3 {. 2 2 $ 1 _1 1 1 * 2 1 1 2&o.
 tmat =: ] ((0 2 ; 1 2) })&(=/~@i.3)
@@ -76,7 +79,7 @@ rundert =: 4 : '(tmat y) dot (rmat x) dot (%. tmat y)'
 transform =: 4 : '(x dot"(2 1) ])&.:homogeneous y'
 NB. The equivalent to the above is then: (_1r4p1 rundert 1 1) transform pts
 
-avg =: +/%#
+avg =: average =: mean =: +/%#
 
 NB. Center Of Gravity for set of discrete points
 NB. Optionally add masses as x argument
@@ -90,29 +93,32 @@ cog =: avg : (+/@:* % +/@:[) NB. p sure this works but keeping explicit ver. aro
 NB. Universal constants
 NB. 2019 SI defining constants
 AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
-BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23 NB. J*K^_1
+BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23 NB. J / K
 ElementaryCharge =: ElectronCharge =: 1.602176634e_19 NB. C
-PlanckConstant =: PlancksConstant =: 6.62607015e_34 NB. J*Hz^_1
-ReducedPlanckConstant =: ReducedPlancksConstant =: 1r2p_1 * PlanckConstant NB. J*Hz^_1
-SpeedOfLight =: 299792458 NB. m*s^_1
-SpeedOfLightSquared =: *: SpeedOfLight NB. (m^2)*s^_2
-NB. Non-defining constants
-GravitationalConstant =: 6.674e_11 NB. (m^3)*(kg^_1)*s^_2
-PermeabilityOfFreeSpace =: VacuumPermeability =: MuNaught =: 1.25663706212e_6 NB. H*m^_1
+PlanckConstant =: PlancksConstant =: 6.62607015e_34 NB. J s
+SpeedOfLight =: 299792458 NB. m / s
+Cs133HyperfineTransitionFrequency =: 9192631770 NB. Hz
+LuminousEfficacy540THz =: 683 NB. lm / W
 NB. Particle rest masses
-ElectronMass =: 9.1093837015e_31 NB. kg (rest mass)
-NeutronMass =: 1.67492749804e_27 NB. kg (rest mass)
-ProtonMass =: 1.67262192369e_27 NB. kg (rest mass)
+ElectronMass =: 9.1093837015e_31 NB. kg -- rest mass
+NeutronMass =: 1.67492749804e_27 NB. kg -- rest mass
+ProtonMass =: 1.67262192369e_27 NB. kg -- rest mass
+NB. Empirical universal constants
+FineStructureConstant =: Alpha =: 0.0072973525643 NB. 1
+GravitationalConstant =: NewtonsGravitationalConstant =: 6.67430e_11 NB. N m^2 / kg^2
+HubbleConstant =: HubblesConstant =: 2.3009533e_18 NB. 1 / s -- aka 71 km / s Mpc; very approximate
 NB. Derived constants
-CoulombConstant =:CoulombsConstant =: 1r4p_1 * PermeabilityOfFreeSpace * SpeedOfLightSquared NB. N*(m^2)*C^2
-FineStructureConstant =: Alpha =: CoulombsConstant * (ElementaryCharge ^ 2) % ReducedPlancksConstant * SpeedOfLight NB. 1
-GasConstant =: AvogadrosNumber * BoltzmannsConstant NB. J*(K*mol)^_1
-PermittivityOfFreeSpace =: VacuumPermittivity =: EpsilonNaught =: % PermeabilityOfFreeSpace * SpeedOfLightSquared NB. F*m^_1
-RydbergConstant =: RydbergsConstant =: (ElectronMass * (ElementaryCharge ^ 4) * (PermeabilityOfFreeSpace ^ 2) * (SpeedOfLight ^ 3)) % 8 * PlancksConstant ^ 3 NB. m^_1
-StefanBoltzmannConstant =: (2r15 * 1p5 * (BoltzmannsConstant ^ 4)) % (SpeedOfLightSquared * PlancksConstant ^ 3) NB. W*(m^_2)*K^_4
+ReducedPlanckConstant =: ReducedPlancksConstant =: 1r2p_1 * PlancksConstant NB. J s
+SpeedOfLightSquared =: *: SpeedOfLight NB. m^2 / s^2
+PermeabilityOfFreeSpace =: VacuumPermeability =: MuNaught =: (2 * Alpha * PlancksConstant) % ((*: ElementaryCharge) * SpeedOfLight) NB. N / A^2
+PermittivityOfFreeSpace =: VacuumPermittivity =: EpsilonNaught =: (*: ElementaryCharge) % (2 * Alpha * PlancksConstant * SpeedOfLight) NB. F / m
+CoulombConstant =:CoulombsConstant =: 1r4p_1 * PermeabilityOfFreeSpace * SpeedOfLightSquared NB. N m^2 / C^2
+GasConstant =: AvogadrosNumber * BoltzmannsConstant NB. J / K mol
+RydbergConstant =: RydbergsConstant =: ((*: Alpha) * ElectronMass * SpeedOfLight) % (2 * PlancksConstant)
+StefanBoltzmannConstant =: (2r15 * 1p5 * (BoltzmannsConstant ^ 4)) % (SpeedOfLightSquared * PlancksConstant ^ 3) NB. W / m^2 K^4
 
-NB. Some useful empirical values
-StandardGravity =: 9.80665 NB. m*s_2
+NB. Other empirical values
+StandardGravity =: 9.80665 NB. m / s^2
 EarthRadius =: 6.3781e6 NB. m
 EarthMass =: 5.9722e24 NB. kg
 MoonRadius =: 1.7374e6 NB. m -- Volumetric mean radius
@@ -130,8 +136,12 @@ UranusOrbit =: 2.867e12 NB. m
 NeptuneOrbit =: 4.515e12 NB. m
 PlutoOrbit =: 5.9064e12 NB. m
 VisibleUniverseRadius =: 4.4e26 NB. m
-SolarConstant =: 1360.8 NB. W*m_2
+SolarConstant =: 1360.8 NB. W / m^2
 Atmosphere =: 101325 NB. Pa
+WaterLatentHeatOfFusion =: 333550 NB. J / kg -- at 1 atm
+WaterLatentHeatOfVaporization =: 2257000 NB. J / kg -- at 1 atm
+WaterSpecificHeat =: WaterHeatCapacity =: WaterSpecificHeatCapacity =: 4184 NB. J / kg K
+WaterIceSpecificHeat =: WaterIceHeatCapacity =: WaterIceSpecificHeatCapacity =: 2093 NB. J / kg K
 
 NB. Temperature conversions
 K2C =: -&273.15
@@ -360,6 +370,15 @@ ElementDataFilename =: 'element_data.tsv'
     elementbyid =: ElementData&(4 : ', x #~ > ((#$]) y)&-: each (1 {"1 x)')
     atomicmassamu =: [: ". 3 pick elementbyid
     atomicmasskg =: 1.6605391e_27 * atomicmassamu
+    a:
+  end.
+)
+
+NB. Same but for the ~100 brightest stars
+StarDataFilename =: 'star_data.tsv'
+3 : 0 ''
+  if. fexist StarDataFilename do.
+    StarData =: (0 1 3 4 6 7 9 { ])"1 > (9 { a.)&cut each cutLF fread StarDataFilename
     a:
   end.
 )
