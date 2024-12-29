@@ -322,7 +322,7 @@ commutator =: 2 : '(u v y) - (v u y)' NB. QM commutation operator
 NB. Relativity
 NB. Create a "squared-distance" measure based on a metric signature
 I =: =/~@i. NB. Identity matrix of dimension y
-metric =: (1 : '+/ m +/ . * *: y - x')"1
+metric =: 1 : '+/ m +/ . * *: y - x'
 euclidean2mt =: I 2 NB. 2D Euclidean metric tensor
 euclidean3mt =: I 3
 minkowskimt =: _1 1 1 1 * I 4
@@ -331,7 +331,7 @@ euclidean2 =: euclidean2mt metric
 euclidean3 =: euclidean3mt metric
 minkowski =: minkowskimt metric
 minkowski2 =: minkowski2mt metric
-NB. tempdata =: 0 0 minkowski2/~ ,"0/~ 10 %~ i: 100
+NB. tempdata =: 0 0 minkowski2"1/~ ,"0/~ 10 %~ i: 100
 NB. NB. Cute diagram
 NB. require 'viewmat'
 NB. viewmat tempdata
