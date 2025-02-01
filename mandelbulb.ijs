@@ -60,7 +60,7 @@ writemandelslice =: 4 : 0
   fname fwrite~ 'P1' , dims , ": result
 )
 
-NB. (i. # zcoords) writemandelslice"(0) zcoords =: 115 %~ i: 151
+(i. # zcoords) writemandelslice"(0) zcoords =: 115 %~ i: 151
 NB. convert mandelbulb_*.pbm mandelbulb_final.gif
 
 NB. for pingpong

@@ -19,6 +19,8 @@ atd =: atr d2r
 c2p =: (xy2ra"1) :. (ra2xy"1)
 p2c =: (ra2xy"1) :. (xy2ra"1)
 
+c2pd =: [: ({. , r2d@}.)"1 c2p
+
 cadd =: +
 csub =: -
 csum =: +/
