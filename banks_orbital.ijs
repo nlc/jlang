@@ -44,7 +44,8 @@ pporbital =: 3 : 0
     velocitykms =. 1000 %~ velocity
     omegarads =. omega
     areakm2 =. 1000000 %~ area
-    'ORBITAL: %.2e km radius | %.2e km/s tangential (%.2e rad/s) | %.4e km2 area' sprintf radiuskm ; velocitykms ; omegarads ; areakm2
+    areaearths =. areakm2 % 510072000
+    'ORBITAL: %.2e km radius | %.2e km/s tangential (%.2e rad/s) | %.4e km2 area (%.1f Earths)' sprintf radiuskm ; velocitykms ; omegarads ; areakm2 ; areaearths
   else.
     'Malformed input!'
   end.
