@@ -17,3 +17,12 @@ A005940_f =: 3 : 0 M.
 A005940 =: (3 : 0)"0
   A005940_f (y - 1) , 1 1
 )
+
+Note 'The Doudna Sequence'
+  "The Doudna sequence: write n-1 in binary;
+  power of prime(k) in a(n) is # of 1's that
+  are followed by k-1 0's."
+)
+
+NB. number of 1s in binary rep. of y that are followed by x 0s
+n1fx0 =: [: +/ (1 , #&0)@[ E."1 #:@]
