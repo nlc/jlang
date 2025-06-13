@@ -4,8 +4,12 @@ require 'optparse'
 
 OPTIONS = {}
 OptionParser.new do |opts|
-  opts.on('-b', '--binary', 'Output as a J-style binary array') do |b|
+  opts.on('-b', '--binary', 'Output as a spaced binary array') do |b|
     OPTIONS[:binary] = b
+  end
+
+  opts.on('-j', '--jarray', 'Output as a J-style array def') do |j|
+    OPTIONS[:jarray] = j
   end
 
   opts.on('-p', '--plaintext', 'Output in plaintext format') do |p|
@@ -100,17 +104,26 @@ class Rle
     end.join("\n")
   end
 
-  def to_j_array
+  def to_binary_array
     @cells.map do |row|
       row.join(' ')
     end.join("\n")
+  end
+
+  def to_j_array
+    @bounds.reverse.join(' ') + ' $ ' +\
+    @cells.map do |row|
+      row.join(' ')
+    end.join(' ')
   end
 end
 
 rle = Rle.new(STDIN.read)
 
 if OPTIONS[:binary].nil?
-  if OPTIONS[:plaintext]
+  if OPTIONS[:jarray]
+    puts rle.to_j_array
+  elsif OPTIONS[:plaintext]
     puts "! #{rle.name}"
     puts "! By #{rle.author}" unless rle.author.nil?
     rle.comments.each do |comment|
@@ -124,5 +137,5 @@ if OPTIONS[:binary].nil?
     puts rle.to_s(charset: OPTIONS[:chars])
   end
 else
-  puts rle.to_j_array
+  puts rle.to_binary_array
 end
