@@ -18,17 +18,27 @@ OptionParser.new do |opts|
 end.parse!
 
 class Rle
-  attr_accessor :bounds, :orig_str, :cells, :name
+  attr_accessor :bounds, :orig_str, :cells, :name, :metadata
 
   def parse(rle_str)
     @orig_str = rle_str
 
-    comment_lines, data_lines =
+    metadata_lines, data_lines =
       @orig_str.split(/\n/).partition do |line|
         line =~ /^ *#/
       end
 
-    @name = comment_lines.first { |line| line =~ /^ *#N/ }.match(/^ *#N *(.*) *$/).to_a[1] || '?'
+    @metadata = {}
+    metadata_lines.each do |line|
+      key, rest = line.match(/^ *#([CcNOPRr]) *(.*)/).to_a[1..]
+
+      key.upcase! if key == 'c'
+
+      @metadata[key] = [] if @metadata[key].nil?
+      @metadata[key] << rest
+    end
+
+    # @name = metadata_lines.first { |line| line =~ /^ *#N/ }.match(/^ *#N *(.*) *$/).to_a[1] || '?'
 
     header_line = data_lines.shift
     raise "Header line pattern not recognized (#{header_line.inspect})" unless header_line.gsub(/ /, '') =~ /^x=\d+,y=\d+(,rule=.+)?$/i
@@ -52,6 +62,18 @@ class Rle
 
   def initialize(rle_str)
     parse(rle_str)
+  end
+
+  def name
+    @metadata['N']&.first || ''
+  end
+
+  def author
+    @metadata['O']&.first || ''
+  end
+
+  def comments
+    @metadata['C'] || []
   end
 
   def width
@@ -90,6 +112,10 @@ rle = Rle.new(STDIN.read)
 if OPTIONS[:binary].nil?
   if OPTIONS[:plaintext]
     puts "! #{rle.name}"
+    puts "! By #{rle.author}" unless rle.author.nil?
+    rle.comments.each do |comment|
+      puts "! #{comment}"
+    end
     puts '!'
     puts rle.to_s(charset: '.O')
   elsif OPTIONS[:chars].nil?
