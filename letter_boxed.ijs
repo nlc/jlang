@@ -1,4 +1,5 @@
-chars =: 'DIM' ; 'CET' ; 'GAL' ; 'BOP'
+NB. chars =: 'DIM' ; 'CET' ; 'GAL' ; 'BOP'
+chars =: 'CIH' ; 'SYA' ; 'BRQ' ; 'UMP'
 words =: cutLF toupper fread '../../wordlist.10000'
 
 NB. filter words to select only those entirely composed of our chars
