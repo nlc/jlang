@@ -29,3 +29,13 @@ primesdemo =: 3 : 0
 
   grid
 )
+
+NB. x by x  grid of 1s with a 3 in the middle
+mkdot =: 1 + 2 * <.@-:@*: = [:i. 2#]
+NB. viewmat iter^:(99) (mkdot 199) * 0.25 > ? 199 199 $ 0
+
+mkdotrand =: 4 : '((x > [: ? 0 $~ 2 # ]) (OR + 2*]) <.@-:@*:=[:i. 2#]) y'
+
+NB. ([:+/,)"(2) 3 = iter^:(49)"2 (10 10$0.1*1+i. 10) mkdotrand"(0) 99
+NB. plot (>./-<./)([:+/,)"(2) 3 = iter^:(49)"2(30 10$0.1*1+i. 10) mkdotrand"(0) 99
+NB. plot +/ %/ ([:+/,)"(2) (3&=,:*) iter^:(49)"2(20 10$0.1*1+i. 10) mkdotrand"(0) 99
