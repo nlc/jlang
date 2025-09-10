@@ -82,6 +82,8 @@ transform =: 4 : '(x dot"(2 1) ])&.:homogeneous y'
 NB. The equivalent to the above is then: (_1r4p1 rundert 1 1) transform pts
 
 avg =: average =: mean =: +/%#
+var =: variance =: (_1&+)@# %~ [: +/ [: *: ] - mean
+stddev =: standarddeviation =: %:@var
 
 NB. Center Of Gravity for set of discrete points
 NB. Optionally add masses as x argument
@@ -94,7 +96,9 @@ cog =: avg : (+/@:* % +/@:[) NB. p sure this works but keeping explicit ver. aro
 
 NB. Universal constants
 NB. 2019 SI defining constants
-AvogadroNumber =: AvogadrosNumber =: 6.02214076e23 NB. 1
+AvogadroNumber =: AvogadrosNumber =: AvogadroConstant =: AvogadrosConstant =: Mole =: 6.02214076e23 NB. 1
+NB. experimental: "1 mol ==> 6.02214076e23"
+mol =: 1 : 'AvogadrosConstant * m'
 BoltzmannConstant =: BoltzmannsConstant =: 1.380649e_23 NB. J / K
 ElementaryCharge =: ElectronCharge =: 1.602176634e_19 NB. C
 PlanckConstant =: PlancksConstant =: 6.62607015e_34 NB. J s
@@ -354,6 +358,8 @@ NB. require 'plot'
 NB. 'surface' plot rva"0/~ ((SpeedOfLight % 100) * i. 101)
 
 schwarzschildradius =: (2 * GravitationalConstant % SpeedOfLightSquared)&*
+
+kilotonTNT =: 4.184e12 NB. One kiloton yield in J, equal to one teracalorie
 
 Note 'Planck''s Law (Blackbody Distribution)'
   B(lambda, T) = ((2*h*c^2)/(lambda^5))*(1/(exp(hc/lambda*kB*T)-1))

@@ -47,3 +47,14 @@ locate =: (0 2 ; 1 2)&{
 Note 'Proof of concept'
   locate"_1 dot/"_1 barnsleym {~ 10 100 samples expandprobs barnsleyp
 )
+
+
+Note 'A different approach'
+  For binary "images": Easily break points down into coords and back using $. and 
+)
+co =: 4 $. $. NB. coords of nonzero points, using sparse matrix
+NB. 20 20 (13 : '1 ({y) } x $ 0') co 105 201 202 e.~ i. 20 20
+img =: 13 : '1 ({y) } x $ 0'
+Note 'Rotating Lenna'
+viewmat 200 200 img <. 200 * (#~ [: */"(1) 0&<: * 1&>) }:"1 ((3 3 $ 1 0 0.5 0 1 0.5 0 0 1) +/ . *  (3 3 $ 0.94 0.34 0 _0.34 0.94 0 0 0 1) +/ . * (3 3 $ 1 0 _0.5 0 1 _0.5 0 1 1)) (+/ . *)"(2 1) ,&1"(1)  200 %~ co lenna
+)

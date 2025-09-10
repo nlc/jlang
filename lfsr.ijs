@@ -10,3 +10,5 @@ NB.
 NB. l1 =: 16 lfsr taps
 NB. 
 NB. s2 -: l1 s1 NB. ==> 1
+
+NB. (15 13 12 10) #.@((}:@] ,~ [: XOR/ {) #:) 0XACE1
