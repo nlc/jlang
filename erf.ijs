@@ -1,1 +1,4 @@
 erf =: 1 - [: % 16 ^~ 1 0.0705230784 0.0422820123 0.0092705272 0.0001520143 0.0002765672 0.0000430638 p. ]
+
+NB. probability of getting LESS than specific Z score
+zcdf =: ([: -: [: >: [: erf %&(%:2))
