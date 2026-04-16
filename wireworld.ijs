@@ -39,3 +39,7 @@ mkdotrand =: 4 : '((x > [: ? 0 $~ 2 # ]) (OR + 2*]) <.@-:@*:=[:i. 2#]) y'
 NB. ([:+/,)"(2) 3 = iter^:(49)"2 (10 10$0.1*1+i. 10) mkdotrand"(0) 99
 NB. plot (>./-<./)([:+/,)"(2) 3 = iter^:(49)"2(30 10$0.1*1+i. 10) mkdotrand"(0) 99
 NB. plot +/ %/ ([:+/,)"(2) (3&=,:*) iter^:(49)"2(20 10$0.1*1+i. 10) mkdotrand"(0) 99
+
+
+NB. a separate attempt, written straight through
+w=:(- >&1) + [: (2 * 1 2 e.~ ]) 1&=* ([:+/^:(2) 3=(,"0/~ i: 1)|.])

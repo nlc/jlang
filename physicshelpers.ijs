@@ -122,6 +122,7 @@ CoulombConstant =:CoulombsConstant =: 1r4p_1 * PermeabilityOfFreeSpace * SpeedOf
 GasConstant =: AvogadrosNumber * BoltzmannsConstant NB. J / K mol
 RydbergConstant =: RydbergsConstant =: ((*: Alpha) * ElectronMass * SpeedOfLight) % (2 * PlancksConstant)
 StefanBoltzmannConstant =: (2r15 * 1p5 * (BoltzmannsConstant ^ 4)) % (SpeedOfLightSquared * PlancksConstant ^ 3) NB. W / m^2 K^4
+WienDisplacementConstant =: WiensDisplacementConstant =: 2.897771955e_3 NB. m K -- Not just a product of other constants; derived in terms of Lambert's W function
 
 NB. Other empirical values
 StandardGravity =: 9.80665 NB. m / s^2
@@ -368,6 +369,9 @@ Note 'Planck''s Law (Blackbody Distribution)'
   T planckslaw lambda
 )
 planckslaw =: ((2 * PlancksConstant * SpeedOfLightSquared) % 5 ^~ ]) * [: % 1 -~ [: ^ (PlancksConstant * SpeedOfLight) % ] * BoltzmannsConstant * [
+
+NB. T = b / lambda where lambda is peak wavelength
+wiensdisplacementlaw =: WiensDisplacementConstant&%
 
 NB. experiment with loading IUPAC element weight data from a file.
 NB. weights are in the fourth column.
