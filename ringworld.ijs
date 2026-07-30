@@ -90,4 +90,4 @@ ts =: phi % omegas
 
 'Twilight lasts either %.2f, %.2f, or %.2f minutes, depending on spin direction' printf ts % 60
 
-exit 1
+NB. exit 1
