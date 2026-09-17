@@ -2,6 +2,9 @@ tap =: 4 : 'XOR/(x&{) y'
 NB. lfsr =: 4 : '#. x (tap , [: }: ]) (16 # 2)&#: y'
 lfsr =: 2 : '#. n (tap , [: }: ]) (m # 2)&#: y'
 
+NB. Implicit single step for bitstrings
+NB. 1 2 ((}:@],~ [: XOR/ {)"1)^:(i. 7)0 0 1
+
 NB. NB. example data:
 NB. taps =: 10 12 13 15
 NB. s1 =: 16bace1
