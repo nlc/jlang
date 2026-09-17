@@ -13,7 +13,7 @@ Note 'Polynomial regression'
 
    the vector of estimated coefficients bhat_i is given by:
 
-      bhat = (XT X)^-1 XT y
+      bhats = (XT X)^-1 XT y
 
    ---
    Usage:
@@ -21,3 +21,13 @@ Note 'Polynomial regression'
 )
 
 pr =: 1 : 'y (+/ . *)~ (|: (+/ . *)~ [: %. |: +/ . * ]) x ^"(0 1) i. m + 1'
+
+Note 'Calculating error'
+   The error values per datum e_i can be found with
+
+      es =: ys - (xs^"(0 1)i.3) dot bhats
+
+   The RMS error is just the euclidean distance between e and 0:
+
+      rmse =: +/&.:*: es
+)
