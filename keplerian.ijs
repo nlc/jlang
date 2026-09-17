@@ -37,7 +37,7 @@ iterkepler =: dyad define
   'ma e' =. x
   Ej =. y
 
-  Ej - (Ej - (e * 1&o. Ej) - ma) % 1 - e * 2&o. Ej
+  Ej - (Ej - (e * 1&o. Ej) + ma) % 1 - e * 2&o. Ej
 )
 
 solvekepler =: monad define
